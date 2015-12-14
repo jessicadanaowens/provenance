@@ -1,0 +1,57 @@
+#login
+  .overlay
+    .content
+      .outter-form
+        .header
+          .circle-outter
+            .circle-inner
+              .circle-inner-inner
+        .inner-form
+          %h5.login-title
+            Get Started Absoluteley
+            %span
+              FREE
+          %p.small no credit card needed
+
+          = form_for(@user) do |f|
+            = render 'shared/error_messages'
+
+            .field.name
+              = f.label 'Name', class: 'name'
+              = f.text_field :name, autocomplete: 'off', class: 'name'
+
+            .field.email
+              = f.label 'Email', class: 'email'
+              = f.email_field :email, class: 'email'
+
+            .field.password
+              = f.label 'Create Password', class: 'password'
+              = f.password_field :password, class: 'password'
+
+            -#= f.label :password_confirmation, "Confirmation"
+            -#= f.password_field :password_confirmation, class: 'form-control'
+            .field.submit
+              = f.submit "sign up free", class: 'submit'
+              %p.terms-of-service
+                By clicking "Sign Up Free" I agree to Provenance's
+                %a{href: "#"}
+                  Terms of Service.
+
+:javascript
+  $(function () {
+
+    $('input.name').on('click', function () {
+      $('label.name').css('animation-name', 'label');
+      $('input.name').css('animation-name', 'input');
+    })
+
+    $('input.email').on('click', function () {
+      $('label.email').css('animation-name', 'label');
+      $('input.email').css('animation-name', 'input');
+    })
+
+    $('input.password').on('click', function () {
+      $('label.password').css('animation-name', 'label');
+      $('input.password').css('animation-name', 'input');
+    })
+  });

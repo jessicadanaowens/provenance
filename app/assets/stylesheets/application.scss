@@ -10,6 +10,13 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
  */
+
+@import "susy";
+@import "base/mixins.scss";
+@import "base/reset.scss";
+@import "base/variables.scss";
+@import "base/globals.scss";
+@import "layout/header";
+@import "pages/sign_up";
