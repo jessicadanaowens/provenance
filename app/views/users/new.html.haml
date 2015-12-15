@@ -19,14 +19,17 @@
             .field.name
               = f.label 'Name', class: 'name'
               = f.text_field :name, autocomplete: 'off', class: 'name'
+              .error.name
 
             .field.email
               = f.label 'Email', class: 'email'
               = f.email_field :email, class: 'email'
+              .error.email
 
             .field.password
               = f.label 'Create Password', class: 'password'
               = f.password_field :password, class: 'password'
+              .error.password
 
             -#= f.label :password_confirmation, "Confirmation"
             -#= f.password_field :password_confirmation, class: 'form-control'
@@ -35,23 +38,131 @@
               %p.terms-of-service
                 By clicking "Sign Up Free" I agree to Provenance's
                 %a{href: "#"}
-                  Terms of Service.
+                  Terms of Service
 
 :javascript
+
   $(function () {
+    var animations = {"password": false, "email": false, "name": false};
+    var animationNames = ['password', 'name', 'email'];
+
 
     $('input.name').on('click', function () {
-      $('label.name').css('animation-name', 'label');
-      $('input.name').css('animation-name', 'input');
-    })
+      if (!blank('name'))  {
+      } else {
+        runAnimations('name');
+      }
+
+
+      if (animations["password"] == true && blank('password') ) {
+        resetAnimation('password');
+      }
+
+      if (animations["email"] == true && blank('email') ) {
+        resetAnimation('email');
+      }
+    });
 
     $('input.email').on('click', function () {
-      $('label.email').css('animation-name', 'label');
-      $('input.email').css('animation-name', 'input');
-    })
+      runAnimations('email');
+
+      if (animations["password"] == true && blank('password')) {
+        resetAnimation('name');
+      }
+
+      if (animations["name"] == true && blank('name')) {
+        resetAnimation('name');
+      }
+    });
 
     $('input.password').on('click', function () {
-      $('label.password').css('animation-name', 'label');
-      $('input.password').css('animation-name', 'input');
-    })
+      runAnimations('password');
+
+      if (animations["email"] == true && blank('email')) {
+        resetAnimation('email');
+      };
+
+      if (animations["name"] == true && blank('name')) {
+        resetAnimation('name');
+      };
+    });
+
+    $('html').click(function() {
+      if (!focusedOn('email') && !focusedOn('password') && !focusedOn('name')) {
+        resetAnimationsFor(animationNames);
+      }
+    });
+
+    $("form").submit(function(e){
+      var ary = ['name', 'email', 'password'];
+
+      for(var i=0; i< ary.length; i++) {
+        clearOldValidation(ary[i]);
+        validateBlankField(ary[i]);
+        validatePasswordLength();
+        validateEmail();
+      }
+
+      e.preventDefault();
+      return false;
+    });
+
+    var focusedOn = function (str) {
+      return $('input.' + str).is(":focus")
+    };
+
+    var blank = function (string) {
+     return ($('input.' + string).val() == '');
+    };
+
+    var validateBlankField = function (label) {
+      if ($('input.' + label).val() == '') {
+        $('.error.' + label).append('Oops! ' + label + ' is required.<br>');
+        $('input.' + label).addClass('inputError')
+      }
+    };
+
+    var validatePasswordLength = function () {
+      if($('input.password').val().length < 6) {
+        $('.error.password').append('Oops! Password must contain minimum 9 characters');
+        $('input.password').addClass('inputError')
+      }
+    };
+
+    var validateEmail = function () {
+      if($('input.email').val().indexOf("@") !== -1) {
+      } else {
+        $('error.email').append('Oops! Invalid email.');
+        $('input.email').addClass('inputError')
+      }
+    };
+
+    var clearOldValidation = function (label) {
+      $('.error.' + label).empty();
+    };
+
+    var runAnimations = function runAnimations (name) {
+      $('label.' + name).css('animation-name', 'label');
+      $('input.' + name).css('animation-name', 'input');
+
+      animations[name] = true;
+    };
+
+    var resetAnimation = function resetAnimation (name) {
+      $('label.' + name).css('animation-name', 'resetLabel');
+      $('input.' + name).css('animation-name', 'resetInput');
+
+      animations[name] = false;
+    }
+
+    var resetAnimationsFor = function (ary) {
+      var name;
+
+      $.each(ary, function (i) {
+         name = ary[i];
+         if (animations[name] == true && blank(name) ) {
+          resetAnimation(name);
+        };
+      })
+    }
   });
