@@ -45,46 +45,25 @@
   $(function () {
     var animations = {"password": false, "email": false, "name": false};
     var animationNames = ['password', 'name', 'email'];
+    var errors = {'password': false, 'name': false, 'email': false}
 
 
     $('input.name').on('click', function () {
-      if (!blank('name'))  {
-      } else {
-        runAnimations('name');
-      }
-
-
-      if (animations["password"] == true && blank('password') ) {
-        resetAnimation('password');
-      }
-
-      if (animations["email"] == true && blank('email') ) {
-        resetAnimation('email');
-      }
+      runAnimations('name');
+      resetAnimation('password');
+      resetAnimation('email');
     });
 
     $('input.email').on('click', function () {
       runAnimations('email');
-
-      if (animations["password"] == true && blank('password')) {
-        resetAnimation('name');
-      }
-
-      if (animations["name"] == true && blank('name')) {
-        resetAnimation('name');
-      }
+      resetAnimation('password');
+      resetAnimation('name');
     });
 
     $('input.password').on('click', function () {
       runAnimations('password');
-
-      if (animations["email"] == true && blank('email')) {
-        resetAnimation('email');
-      };
-
-      if (animations["name"] == true && blank('name')) {
-        resetAnimation('name');
-      };
+      resetAnimation('email');
+      resetAnimation('name');
     });
 
     $('html').click(function() {
@@ -99,13 +78,26 @@
       for(var i=0; i< ary.length; i++) {
         clearOldValidation(ary[i]);
         validateBlankField(ary[i]);
-        validatePasswordLength();
-        validateEmail();
+      }
+
+      validatePasswordLength();
+      validateEmail();
+
+      for (var key in errors) {
+        addRedBorder(key);
       }
 
       e.preventDefault();
       return false;
     });
+
+    var addRedBorder  = function (key) {
+      if (errors[key] == true) {
+        $('.error.' + key).css('border-top', '3px solid red');
+      } else {
+        $('.error.' + key).css('border-top', '');
+      }
+    };
 
     var focusedOn = function (str) {
       return $('input.' + str).is(":focus")
@@ -118,22 +110,28 @@
     var validateBlankField = function (label) {
       if ($('input.' + label).val() == '') {
         $('.error.' + label).append('Oops! ' + label + ' is required.<br>');
-        $('input.' + label).addClass('inputError')
+        errors[label] = true;
+      } else {
+        errors[label] = false;
       }
     };
 
     var validatePasswordLength = function () {
       if($('input.password').val().length < 6) {
         $('.error.password').append('Oops! Password must contain minimum 9 characters');
-        $('input.password').addClass('inputError')
+        errors['password'] = true;
+      } else {
+        errors['password'] = false;
+
       }
     };
 
     var validateEmail = function () {
       if($('input.email').val().indexOf("@") !== -1) {
+        errors['email'] = false;
       } else {
-        $('error.email').append('Oops! Invalid email.');
-        $('input.email').addClass('inputError')
+        $('.error.email').append('Oops! Invalid email.');
+        errors['email'] = true;
       }
     };
 
@@ -149,11 +147,12 @@
     };
 
     var resetAnimation = function resetAnimation (name) {
-      $('label.' + name).css('animation-name', 'resetLabel');
-      $('input.' + name).css('animation-name', 'resetInput');
-
-      animations[name] = false;
-    }
+      if (animations[name] == true && blank(name)) {
+        $('label.' + name).css('animation-name', 'resetLabel');
+        $('input.' + name).css('animation-name', 'resetInput');
+        animations[name] = false;
+      }
+    };
 
     var resetAnimationsFor = function (ary) {
       var name;
