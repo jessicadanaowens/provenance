@@ -1,0 +1,30 @@
+#login
+  .overlay
+    .content
+      .outter-form
+        .form-header
+          .circle-outter
+            .circle-inner
+              .circle-inner-inner
+        .inner-form
+          %h5.login-title Log In
+
+          = form_for(:session, url: login_path, autocomplete: 'off') do |f|
+            -#= render 'shared/error_messages'
+
+            .field.email
+              = f.label :email, class: 'email'
+              = f.email_field :email, class: 'email'
+              .error.email
+
+            .field.password
+              = f.label :password, class: 'password'
+              = f.password_field :password, class: 'password'
+              .error.password
+
+            .field.submit
+              = f.submit "Log in", class: 'submit'
+
+            %p
+              New user?
+              = link_to "Sign up now!", signup_path

@@ -16,10 +16,21 @@
     margin-bottom: 150px;
     background-color: $white;
 
+    @include bp-small {
+      width: 100%;
+      float: none;
+      margin: 0;
+    }
+
     .outter-form {
       padding: 80px 100px 60px;
 
-      .header {
+      @include bp-small {
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+
+      .form-header {
         margin-bottom: 60px;
         .circle-outter {
           @include center-block;
