@@ -31,8 +31,6 @@
               = f.password_field :password, class: 'password'
               .error.password
 
-            -#= f.label :password_confirmation, "Confirmation"
-            -#= f.password_field :password_confirmation, class: 'form-control'
             .field.submit
               = f.submit "sign up free", class: 'submit'
               %p.terms-of-service
@@ -45,7 +43,8 @@
   $(function () {
     var animations = {"password": false, "email": false, "name": false};
     var animationNames = ['password', 'name', 'email'];
-    var errors = {'password': false, 'name': false, 'email': false}
+    var errors = {'password': false, 'name': false, 'email': false};
+    var filledIn = {'password': false, 'email': false, 'name': false};
 
 
     $('input.name').on('click', function () {
@@ -90,6 +89,10 @@
       e.preventDefault();
       return false;
     });
+
+    var filledIn = function(txt) {
+      $('input.' + txt).val() != '';
+    }
 
     var addRedBorder  = function (key) {
       if (errors[key] == true) {
@@ -140,17 +143,33 @@
     };
 
     var runAnimations = function runAnimations (name) {
-      $('label.' + name).css('animation-name', 'label');
-      $('input.' + name).css('animation-name', 'input');
-
-      animations[name] = true;
+      if (animations[name] == false && !blank(name)) {
+        $('label.' + name).css('animation-name', 'initialFilledInLabel');
+        animations[name] = true;
+        filledIn[name] = true;
+      } else if (animations[name] == true && !blank(name)){
+        //do nothing
+      } else {
+        $('label.' + name).css('animation-name', 'label');
+        $('input.' + name).css('animation-name', 'input');
+        animations[name] = true;
+      }
     };
 
     var resetAnimation = function resetAnimation (name) {
-      if (animations[name] == true && blank(name)) {
-        $('label.' + name).css('animation-name', 'resetLabel');
-        $('input.' + name).css('animation-name', 'resetInput');
+      if (animations[name] == true && blank(name) && filledIn[name]) {
+        $('label.' + name).css('animation-name', 'resetFilledInLabel');
+        filledIn[name] = false;
         animations[name] = false;
+      } else if (animations[name] == true && blank(name)) {
+        $('label.' + name).css('animation-name', 'resetFilledInLabel');
+        $('input.' + name).css('animation-name', 'resetInput');
+        filledIn[name] = false;
+        animations[name] = false;
+      } else if (animations[name] == true && !blank(name) && !filledIn[name]) {
+        $('label.' + name).css('animation-name', 'filledInLabel');
+        $('input.' + name).css('animation-name', 'resetInput');
+        filledIn[name] = true;
       }
     };
 

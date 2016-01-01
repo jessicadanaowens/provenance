@@ -68,7 +68,7 @@
           display: block;
           position: relative;
           height: 75px;
-          margin-top: 30px;
+          margin-top: 40px;
           width: 100%;
           animation-duration: .3s;
           -webkit-animation-fill-mode: forwards;
@@ -130,6 +130,37 @@
         @keyframes resetInput {
           from {border-bottom: 1px solid $pink; }
           to {border-bottom: 1px solid $light-grey;}
+        }
+
+
+        @keyframes filledInLabel {
+          from {font-size: 12px;
+                text-transform: uppercase;
+                color: $pink;
+                bottom: 60px;}
+          to {font-size: 12px;
+              text-transform: uppercase;
+              color: $medium-grey;
+              bottom: 60px;}
+          }
+
+        @keyframes initialFilledInLabel {
+          from {font-size: 18px;}
+          to {font-size: 12px;
+            text-transform: uppercase;
+            color: $medium-grey;
+            bottom: 60px;}
+        }
+
+        @keyframes resetFilledInLabel {
+          from {font-size: 12px;
+            text-transform: uppercase;
+            color: $medium-grey;
+            bottom: 60px;}
+          to {font-size: 18px;
+            text-transform: lowercase;
+            color: $label;
+            bottom: 25px;}
         }
 
         input:focus {
