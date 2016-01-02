@@ -2,6 +2,7 @@ $(function () {
   var animations = {"password": false, "email": false, "name": false};
   var animationNames = ['password', 'name', 'email'];
   var errors = {'password': false, 'name': false, 'email': false};
+  var errorCount = 0;
   var filledIn = {'password': false, 'email': false, 'name': false};
 
 
@@ -31,6 +32,7 @@ $(function () {
 
   $("form").submit(function(e){
     var ary = ['name', 'email', 'password'];
+    errorCount = 0;
 
     for(var i=0; i< ary.length; i++) {
       clearOldValidation(ary[i]);
@@ -44,13 +46,17 @@ $(function () {
       addRedBorder(key);
     }
 
-    e.preventDefault();
-    return false;
+    if (errorCount > 0) {
+      e.preventDefault();
+      return false;
+    } else {
+      return true;
+    }
   });
 
   var filledIn = function(txt) {
     $('input.' + txt).val() != '';
-  }
+  };
 
   var addRedBorder  = function (key) {
     if (errors[key] == true) {
@@ -72,6 +78,7 @@ $(function () {
     if ($('input.' + label).val() == '') {
       $('.error.' + label).append('Oops! ' + label + ' is required.<br>');
       errors[label] = true;
+      errorCount += 1;
     } else {
       errors[label] = false;
     }
@@ -81,6 +88,7 @@ $(function () {
     if($('input.password').val().length < 6) {
       $('.error.password').append('Oops! Password must contain minimum 9 characters');
       errors['password'] = true;
+      errorCount += 1;
     } else {
       errors['password'] = false;
 
@@ -93,11 +101,13 @@ $(function () {
     } else {
       $('.error.email').append('Oops! Invalid email.');
       errors['email'] = true;
+      errorCount += 1;
     }
   };
 
   var clearOldValidation = function (label) {
     $('.error.' + label).empty();
+    error[label] = false;
   };
 
   var runAnimations = function runAnimations (name) {

@@ -10,8 +10,7 @@
           %h5.login-title Log In
 
           = form_for(:session, url: login_path, autocomplete: 'off') do |f|
-            -#= render 'shared/error_messages'
-
+            = @error
             .field.email
               = f.label :email, class: 'email'
               = f.email_field :email, class: 'email'
@@ -23,7 +22,7 @@
               .error.password
 
             .field.submit
-              = f.submit "Log in", class: 'submit'
+              = f.submit "Log in", class: 'sign-in-submit'
 
             %p
               New user?

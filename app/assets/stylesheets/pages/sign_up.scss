@@ -194,9 +194,9 @@
           border-bottom: 3px solid red;
         }
 
-        .field.submit {
+        .field.submit{
           margin-bottom: 50px;
-          input.submit {
+          input.submit, input.sign-in-submit {
             @include border-radius(3px);
             width: 100%;
             background-color: $pink;
