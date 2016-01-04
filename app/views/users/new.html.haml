@@ -16,6 +16,9 @@
           = form_for(@user) do |f|
             = render 'shared/error_messages'
 
+            %input(style="display:none;" type="text" name="somefakename")
+            %input(style="display:none;" type="password" name="anotherfakename")
+
             .field.name
               = f.label 'Name', class: 'name'
               = f.text_field :name, autocomplete: 'off', class: 'name'
