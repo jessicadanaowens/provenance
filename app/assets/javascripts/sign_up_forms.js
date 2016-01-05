@@ -5,6 +5,7 @@ $(function () {
   var errorCount = 0;
   var filledIn = {'password': false, 'email': false, 'name': false};
 
+  checkIfFieldsAreFilledIn();
 
   $('input.name').on('click', function () {
     runAnimations('name');
@@ -54,6 +55,20 @@ $(function () {
     }
   });
 
+  function checkIfFieldsAreFilledIn () {
+    if ($('input.name').val() != "") {
+      $('label.name').css({'font-size': '12px', 'text-transform': 'uppercase', 'color': 'grey', 'bottom': '60px'});
+      animations['name'] = true;
+      filledIn['name'] = true;
+    };
+
+    if ($('input.email').val() != "") {
+      $('label.email').css({'font-size': '12px', 'text-transform': 'uppercase', 'color': 'grey', 'bottom': '60px'});
+      animations['email'] = true;
+      filledIn['email'] = true;
+    };
+  }
+
   var filledIn = function(txt) {
     $('input.' + txt).val() != '';
   };
@@ -86,6 +101,7 @@ $(function () {
 
   var validatePasswordLength = function () {
     if($('input.password').val().length < 6) {
+      $('.error.password').empty();
       $('.error.password').append('Oops! Password must contain minimum 9 characters');
       errors['password'] = true;
       errorCount += 1;
@@ -99,6 +115,7 @@ $(function () {
     if($('input.email').val().indexOf("@") !== -1) {
       errors['email'] = false;
     } else {
+      $('.error.email').empty();
       $('.error.email').append('Oops! Invalid email.');
       errors['email'] = true;
       errorCount += 1;
@@ -107,7 +124,7 @@ $(function () {
 
   var clearOldValidation = function (label) {
     $('.error.' + label).empty();
-    error[label] = false;
+    errors[label] = false;
   };
 
   var runAnimations = function runAnimations (name) {

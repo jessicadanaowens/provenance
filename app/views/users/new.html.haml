@@ -35,8 +35,13 @@
               .error.password
 
             .field.submit
-              = f.submit "sign up free", class: 'submit'
-              %p.terms-of-service
+              = f.submit "sign up free", class: 'submit pink-button'
+              %p.small-text
                 By clicking "Sign Up Free" I agree to Provenance's
                 %a{href: "#"}
                   Terms of Service
+
+    .login-link
+      %p.small-text
+        Already have an account?
+        %a{href: login_path} Login!

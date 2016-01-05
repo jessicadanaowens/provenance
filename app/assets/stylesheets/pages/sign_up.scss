@@ -79,7 +79,7 @@
           display: block;
           position: relative;
           height: 75px;
-          margin-top: 40px;
+          margin-top: 20px;
           width: 100%;
           animation-duration: .3s;
           -webkit-animation-fill-mode: forwards;
@@ -191,42 +191,44 @@
           position: relative;
           top: 72px;
           font-size: 13px;
-          color: red;
+          color: $error;
           padding-top: 5px;
         }
 
         .inputError {
-          border-bottom: 3px solid red;
+          border-bottom: 3px solid $error;
         }
 
         .field.submit{
           margin-bottom: 50px;
-          input.submit, input.sign-in-submit {
-            @include border-radius(3px);
-            width: 100%;
-            background-color: $pink;
-            color: white;
-            text-transform: uppercase;
-            padding: 20px;
-            font-size: 12px;
-            margin-bottom: 20px;
-            margin-top: 40px;
-            font-weight: $bold;
-            border: 0;
-          }
 
-          p.terms-of-service {
-
-            font-size: 12px;
-            text-align: center;
-            color: gray;
-
-            a {
-              color: $blue;
-              text-decoration: none;
-            }
-          }
         }
+      }
+    }
+  }
+
+  p.small-text {
+
+    font-size: 13px;
+    text-align: center;
+    color: gray;
+
+    a {
+      color: $blue;
+      text-decoration: none;
+    }
+  }
+
+  .login-link {
+    @include center-block();
+    margin-top: -120px;
+
+    p.small-text {
+      text-align: center;
+      color:  $light-grey;
+      a {
+        color: $pink;
+        font-weight: $bold;
       }
     }
   }

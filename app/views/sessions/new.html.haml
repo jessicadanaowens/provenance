@@ -31,8 +31,10 @@
                 %span Remember me on this computer
 
             .field.submit
-              = f.submit "Log in", class: 'sign-in-submit'
+              = f.submit "Log in", class: 'sign-in-submit pink-button'
 
-            %p
-              New user?
-              = link_to "Sign up now!", signup_path
+    .login-link
+      %p.small-text
+        New user?
+        = link_to "Sign up now!", signup_path
+
