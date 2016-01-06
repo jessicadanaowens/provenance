@@ -6,4 +6,46 @@
 #dashboard
   .container
 
+#modal
+  .modal-content
+    .close
+      %p.close-modal &#10005;
+    .form.new
+      %h3.title Add New Item
+
+      .field
+        %input{type: 'text', placeholder:'title', name: 'title', class: 'new'}
+
+      .field
+        %input{type: 'text', placeholder:'description', name: 'description'}
+
+      .field
+        %input{type: 'date', placeholder:'purchase date', name: 'purchase date'}
+
+      .field
+        %input{type: 'number', placeholder:'purchase price', name: 'purchase price'}
+
+      .field
+        %input{type: 'number', placeholder:'estimated value', name: 'estimated value'}
+
+      .field
+        %input{type: 'checkbox', placeholder:'private', name: 'private'}
+
+
+
+
+:javascript
+  $(function () {
+    $('.add').on('click', function () {
+      $('#modal-overlay').toggle();
+      $('#modal').slideToggle();
+    })
+
+    $('.close-modal').on('click', function () {
+      $('#modal').toggle();
+      $('#modal-overlay').toggle('slow');
+    })
+  })
+
+
 

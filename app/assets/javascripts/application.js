@@ -16,3 +16,10 @@
 //= require jquery.turbolinks
 
 //= require_tree .
+
+$(function () {
+
+  $('.current-user-link').on('click', function() {
+    $('.current-user-dropdown').slideToggle();
+  })
+});

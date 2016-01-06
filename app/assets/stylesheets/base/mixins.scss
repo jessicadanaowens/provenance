@@ -30,9 +30,9 @@
 }
 
 @mixin drop-shadow($val1) {
-  -webkit-box-shadow: $val1 #b8b9c7;
-  -moz-box-shadow: $val1 #b8b9c7;
-  box-shadow: $val1 #b8b9c7;
+  -webkit-box-shadow: $val1;
+  -moz-box-shadow: $val1;
+  box-shadow: $val1;
 }
 
 @mixin center-block {
