@@ -23,6 +23,8 @@ body {
 .alert {
   color: $error;
   padding-bottom: 5px;
+  position: absolute;
+  top: 50px;
 }
 
 .container {

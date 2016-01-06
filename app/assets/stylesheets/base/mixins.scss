@@ -29,6 +29,12 @@
   background-clip: padding-box;  /* stops bg color from leaking outside the border: */
 }
 
+@mixin drop-shadow($val1) {
+  -webkit-box-shadow: $val1 #b8b9c7;
+  -moz-box-shadow: $val1 #b8b9c7;
+  box-shadow: $val1 #b8b9c7;
+}
+
 @mixin center-block {
   display: block;
   margin-left: auto;

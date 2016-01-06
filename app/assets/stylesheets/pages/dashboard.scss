@@ -1,5 +1,5 @@
 .dashboard-nav {
-  width:100%;
+  width: 100%;
   position: relative;
   float: left;
   height: 80px;
@@ -8,5 +8,27 @@
   h2 {
     color: white;
     font-weight: 300;
+  }
+
+  .add {
+    i {
+      color: white;
+      font-size: 2em;
+      position: relative;
+      left: 14px;
+      top: 3px;
+    }
+    background-color: $pink;
+    @include border-radius(50%);
+    @include drop-shadow(0 4px 2px -2px);
+    width: 50px;
+    height: 50px;
+    float: right;
+    margin-right: 50px;
+    margin-top: 13px;
+  }
+
+  .add:hover {
+    cursor: pointer;
   }
 }
