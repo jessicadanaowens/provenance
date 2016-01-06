@@ -1,0 +1,16 @@
+%header.navbar
+  .container
+    %nav
+      .nav-left
+        = link_to "Provenance", root_path, id: "logo"
+        -if logged_in?
+          = link_to "Dashboard", dashboard_path, class: 'nav-link dashboard-link'
+
+      .nav-right
+        -if logged_in?
+          %a.current-user-link.nav-link= current_user.email
+          .current-user-dropdown
+            %ul
+              %li= link_to "Log out", logout_path, method: "delete"
+        -else
+          %a= link_to "Log in", login_path

@@ -1,0 +1,51 @@
+.navbar {
+  width:100%;
+  position: relative;
+  float: left;
+  height: 65px;
+  background-color: $dark-blue;
+
+  .container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  a.nav-link, #logo{
+    color: $light-grey;
+    display: inline-block;
+    float: left;
+    text-decoration: none;
+    margin-right: 50px;
+    font-size: 14px;
+  }
+
+  #logo {
+    color: $pink;
+  }
+
+  a.nav-link {
+    color: $light-grey;
+  }
+
+  .nav-left {
+    display: inline-block;
+    float: left;
+  }
+
+  .nav-right {
+    display: inline-block;
+    float: right;
+
+    a.nav-link{
+      float: left;
+    }
+
+    a.current-user-link {
+      float: left;
+    }
+
+    .current-user-dropdown {
+      display: none;
+    }
+  }
+}
