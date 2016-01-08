@@ -3,17 +3,27 @@
   width: 100%;
   background-color: $pink;
   color: white;
-  text-transform: uppercase;
   padding: 20px;
   font-size: 12px;
   margin-bottom: 20px;
   margin-top: 40px;
   font-weight: $bold;
   border: 0;
-  -webkit-transition: background-color 1s;
-  transition: background-color 1s;
+  @include transition (background-color .2s);
 }
 
 .pink-button:hover {
   background-color: $pink-hover
+}
+
+.delete {
+  @extend .pink-button;
+  background-color: $green;
+  width: 100px;
+  padding: 10px;
+  margin: 0;
+}
+
+.delete:hover {
+  background-color: $green-hover;
 }

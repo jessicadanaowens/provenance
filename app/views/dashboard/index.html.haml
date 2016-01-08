@@ -4,48 +4,99 @@
     .add
       %i+
 #dashboard
-  .container
+  .filters.container
 
+  .items-container.container
+    %ul.items
+      -if @items.length > 0
+        -@items.each do |item|
+          %li{id: item.id}
+            .item
+              %p= item.title
+              %button.delete{id: item.id} Delete
 #modal
   .modal-content
     .close
       %p.close-modal &#10005;
     .form.new
       %h3.title Add New Item
+      =form_for Item.new, html: {id: 'new-item'} do |f|
+        .field
+          =f.text_field :title, placeholder:'title', id: 'title'
 
-      .field
-        %input{type: 'text', placeholder:'title', name: 'title', class: 'new'}
+        .field
+          =f.text_field :description, placeholder:'description', id: 'description'
 
-      .field
-        %input{type: 'text', placeholder:'description', name: 'description'}
+        .field
+          =f.date_field :purchase_date, placeholder:'purchase date', class: 'purchase-date'
 
-      .field
-        %input{type: 'date', placeholder:'purchase date', name: 'purchase date'}
+        .field
+          =f.number_field :purchase_price, placeholder:'purchase price', class: 'purchase-price'
 
-      .field
-        %input{type: 'number', placeholder:'purchase price', name: 'purchase price'}
+        .field
+          =f.number_field :estimated_value, placeholder:'estimated value', class: 'estimated-value'
 
-      .field
-        %input{type: 'number', placeholder:'estimated value', name: 'estimated value'}
-
-      .field
-        %input{type: 'checkbox', placeholder:'private', name: 'private'}
+        .field
+          =f.submit "Create", class: 'pink-button'
 
 
 
 
 :javascript
   $(function () {
+
+    //event handlers
+
     $('.add').on('click', function () {
       $('#modal-overlay').toggle();
       $('#modal').slideToggle();
-    })
+    });
+
+    $(document).on('click', '.delete', function() {
+       var id = this.id;
+
+      $.ajax({
+        type: 'DELETE',
+        url: '/items/:id',
+        data: { item: {id: id}}
+      }).done(function( data ) {
+         $('li#' + id).remove();
+        });
+    });
 
     $('.close-modal').on('click', function () {
-      $('#modal').toggle();
-      $('#modal-overlay').toggle('slow');
-    })
-  })
+      closeModal();
+    });
+
+    $("form#new-item").submit(function(event){
+      event.preventDefault();
+
+      var action = $(this).attr('action');
+      var method = $(this).attr('method');
+
+      var description = $(this).find('#description').val();
+      var title = $(this).find('#title').val();
+
+       $.ajax({
+        method: method,
+        url: action,
+        data: { item: {title: title, description: description}}
+      }).done(function( data ) {
+          debugger;
+          closeModal();
+          var html = "<li id=" + data.id + "><div class='item'><p>" + data.title + "</p><button class='delete' id=" + data.id + ">Delete</button></div></li>";
+
+          $('ul.items').append(html);
+        });
+
+      return false;
+    });
+  });
+
+  var closeModal = function closeModal () {
+    $('#modal').toggle();
+    $('#modal-overlay').toggle('slow');
+  }
 
 
 

@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get 'dashboard' => 'dashboard#index', :as => :dashboard
 
   resources :users
+  resources :items, defaults: { format: 'json' }
 end

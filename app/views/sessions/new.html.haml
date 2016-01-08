@@ -9,7 +9,7 @@
         .inner-form
           %h5.login-title Log In
 
-          = form_for(:session, url: login_path, autocomplete: 'off') do |f|
+          = form_for(:session, url: login_path, autocomplete: 'off', html: {id: 'sign-in'}) do |f|
             = @error
 
             %input(style="display:none;" type="text" name="somefakename")
