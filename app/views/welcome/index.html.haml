@@ -1,0 +1,107 @@
+#welcome
+  .first.section{align: "center"}
+    .container
+
+      %h1 An easy, fun solution for managing your art and collectibles.
+
+  .second.section{align: "center"}
+    .container
+      %h1 Document the provenance for each unique piece over a lifetime.
+
+  .third.section{align: "center"}
+    .container
+      %h1 Easily export and share with others.
+
+  .forth.section{align: "center"}
+    .container
+      .content
+        .outter-form
+          .form-header
+            .circle-outter
+              .circle-inner
+                .circle-inner-inner
+          .inner-form
+            %h5.login-title
+              Get Started Absoluteley
+              %span
+                FREE
+            %p.small no credit card needed
+
+            = form_for(@user, html: {id: 'sign-up'}) do |f|
+              = render 'shared/error_messages'
+
+              %input(style="display:none;" type="text" name="somefakename")
+              %input(style="display:none;" type="password" name="anotherfakename")
+
+              .field.name
+                = f.label 'Name', class: 'name'
+                = f.text_field :name, autocomplete: 'off', class: 'name'
+                .error.name
+
+              .field.email
+                = f.label 'Email', class: 'email'
+                = f.email_field :email, class: 'email'
+                .error.email
+
+              .field.password
+                = f.label 'Create Password', class: 'password'
+                = f.password_field :password, class: 'password'
+                .error.password
+
+              .field.submit
+                = f.submit "sign up free", class: 'submit pink-button'
+                %p.small-text
+                  By clicking "Sign Up Free" I agree to Provenance's
+                  %a{href: "#"}
+                    Terms of Service
+
+    .login-link
+      %p.small-text
+        Already have an account?
+        %a{href: login_path} Login!
+  -#
+  -#
+  -#.forth.section{align: "center"}
+  -#  .container
+  -#    %h1 Easily export and share with others.
+
+
+  -#.forth.section{align: "center"}
+  -#  .container
+  -#    %h1 Connect with collectors and invite your friends and family to participate.
+  -#
+  -#.fifth.section{align: "center"}
+  -#  .container
+  -#    %h1 Try it for free!
+:javascript
+    $(function () {
+
+        $(document).scroll(function(){
+          var scrollPos = $(this).scrollTop();
+          $('.first h1').css({
+            'opacity' : 1-(scrollPos/250)
+          });
+
+          var secondPos = scrollPos - 390;
+          var thirdPos = scrollPos - 980;
+          var forthPos = scrollPos - 1580;
+
+          var secondOpacity = -.00002 * Math.pow(secondPos, 2) + 1;
+          var thirdOpacity = -.00002 * Math.pow(thirdPos, 2) + 1;
+          var forthOpacity = -.00002 * Math.pow(forthPos, 2) + 1;
+
+          $('.second').css({
+            'opacity' : secondOpacity
+          });
+
+          $('.third').css({
+            'opacity' : thirdOpacity
+          });
+
+          $('.forth').css({
+            'opacity' : forthOpacity
+          });
+
+        });
+  });
+
