@@ -1,4 +1,4 @@
-#login {
+.login, .welcome-login{
   .overlay {
     position: absolute;
     top: 0;
@@ -230,6 +230,21 @@
       a {
         color: $pink;
         font-weight: $bold;
+      }
+    }
+  }
+}
+
+.welcome-login {
+  margin-top: 300px;
+
+  .content {
+    background-color: transparent;
+    margin-top: 0;
+
+    .inner-form {
+      h5.login-title {
+        color: $light-grey;
       }
     }
   }

@@ -12,8 +12,8 @@
     .container
       %h1 Easily export and share with others.
 
-  .forth.section{align: "center"}
-    .container
+  .section
+    .welcome-login
       .content
         .outter-form
           .form-header
@@ -27,7 +27,7 @@
                 FREE
             %p.small no credit card needed
 
-            = form_for(@user, html: {id: 'sign-up'}) do |f|
+            = form_for(@user, html: {id: 'welcome-page-sign-up'}) do |f|
               = render 'shared/error_messages'
 
               %input(style="display:none;" type="text" name="somefakename")
@@ -55,10 +55,10 @@
                   %a{href: "#"}
                     Terms of Service
 
-    .login-link
-      %p.small-text
-        Already have an account?
-        %a{href: login_path} Login!
+        .login-link
+          %p.small-text
+            Already have an account?
+            %a{href: login_path} Login!
   -#
   -#
   -#.forth.section{align: "center"}

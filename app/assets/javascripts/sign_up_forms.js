@@ -26,7 +26,6 @@ $(function () {
       newSignUp.resetAnimationsFor(this.animationNames);
     }
   });
-
 });
 
 var SignUp = function () {
@@ -39,52 +38,40 @@ var SignUp = function () {
 
 SignUp.prototype.signInOrSignUp = function signInOrSignUp () {
   $("form#sign-in").submit(function(e){
-    var ary = ['name', 'email', 'password'];
-    this.errorCount = 0;
-
-    for(var i=0; i< ary.length; i++) {
-      this.clearOldValidation(ary[i]);
-      this.validateBlankField(ary[i]);
-    }
-
-    this.validatePasswordLength();
-    this.validateEmail();
-
-    for (var key in this.errors) {
-      this.addRedBorder(key);
-    }
-
-    if (this.errorCount > 0) {
-      e.preventDefault();
-      return false;
-    } else {
-      return true;
-    }
+    this.submit();
   });
 
   $("form#sign-up").submit(function(e){
-    var ary = ['name', 'email', 'password'];
-    this.errorCount = 0;
-
-    for(var i=0; i< ary.length; i++) {
-      this.clearOldValidation(ary[i]);
-      this.validateBlankField(ary[i]);
-    }
-
-    this.validatePasswordLength();
-    this.validateEmail();
-
-    for (var key in this.errors) {
-      this.addRedBorder(key);
-    }
-
-    if (this.errorCount > 0) {
-      e.preventDefault();
-      return false;
-    } else {
-      return true;
-    }
+    this.submit();
   });
+
+  $("form#welcome-page-sign-up").submit(function(e){
+    this.submit()
+  });
+};
+
+SignUp.prototype.submit = function submit () {
+  var ary = ['name', 'email', 'password'];
+  this.errorCount = 0;
+
+  for(var i=0; i< ary.length; i++) {
+    this.clearOldValidation(ary[i]);
+    this.validateBlankField(ary[i]);
+  }
+
+  this.validatePasswordLength();
+  this.validateEmail();
+
+  for (var key in this.errors) {
+    this.addRedBorder(key);
+  }
+
+  if (this.errorCount > 0) {
+    e.preventDefault();
+    return false;
+  } else {
+    return true;
+  }
 };
 
 SignUp.prototype.checkIfFieldsAreFilledIn = function checkIfFieldsAreFilledIn () {

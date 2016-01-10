@@ -6,11 +6,13 @@
 
 #welcome {
   height: 2000px;
+
   h1 {
     color: white;
     font-weight: $lighter;
     max-width: 700px;
     text-align: center;
+    padding: 50px;
   }
 
   .first {
@@ -24,46 +26,22 @@
     }
   }
 
-  @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-  @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-
-  .second {
-    opacity: 0;
-    margin-top: 600px;
-    background-color: $pink;
+  .second, .third, .forth{
     padding-top: 50px;
     padding-bottom: 50px;
+  }
 
-
-    h1 {
-      background-color: $pink;
-      padding: 50px;
-    }
+  .second {
+    margin-top: 600px;
+    background-color: $pink;
   }
 
   .third {
-    opacity: 1;
-    z-index: 3000;
-    background-color: $blue;
-    padding-top: 50px;
-    padding-bottom: 50px;
     margin-top: 300px;
-
-    h1 {
-      padding: 50px;
-    }
+    background-color: $blue;
   }
 
   .forth {
-    opacity: 1;
-    z-index: 3000;
-    background-color: $green;
-    padding-top: 50px;
-    padding-bottom: 50px;
     margin-top: 300px;
   }
-  //.fifth {
-  //  background-color: $dark-blue;
-  //}
 }
