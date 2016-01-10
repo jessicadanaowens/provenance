@@ -1,7 +1,18 @@
 $(function () {
   var newSignUp = new SignUp();
   newSignUp.checkIfFieldsAreFilledIn();
-  newSignUp.signInOrSignUp();
+
+  $("form#sign-up").submit(function(e){
+    newSignUp.signInOrSignUp(e);
+  });
+
+  $("form#sign-in").submit(function(e){
+    newSignUp.signInOrSignUp(e);
+  });
+
+  $("form#welcome-page-sign-up").submit(function(e){
+    newSignUp.signInOrSignUp(e);
+  });
 
   $('input.name').on('click', function () {
     newSignUp.runAnimations('name');
@@ -32,27 +43,12 @@ var SignUp = function () {
   this.animations = {"password": false, "email": false, "name": false};
   this.animationNames = ['password', 'name', 'email'];
   this.errors = {'password': false, 'name': false, 'email': false};
-  this.errorCount = 0;
   this.filledin = {'password': false, 'email': false, 'name': false};
+  this.errorCount = 0
 };
 
-SignUp.prototype.signInOrSignUp = function signInOrSignUp () {
-  $("form#sign-in").submit(function(e){
-    this.submit();
-  });
-
-  $("form#sign-up").submit(function(e){
-    this.submit();
-  });
-
-  $("form#welcome-page-sign-up").submit(function(e){
-    this.submit()
-  });
-};
-
-SignUp.prototype.submit = function submit () {
+SignUp.prototype.signInOrSignUp = function signInOrSignUp (e) {
   var ary = ['name', 'email', 'password'];
-  this.errorCount = 0;
 
   for(var i=0; i< ary.length; i++) {
     this.clearOldValidation(ary[i]);

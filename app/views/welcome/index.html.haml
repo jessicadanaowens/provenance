@@ -1,3 +1,6 @@
+= javascript_include_tag "welcome"
+= javascript_include_tag "sign_up_forms"
+
 #welcome
   .first.section{align: "center"}
     .container
@@ -55,10 +58,10 @@
                   %a{href: "#"}
                     Terms of Service
 
-        .login-link
-          %p.small-text
-            Already have an account?
-            %a{href: login_path} Login!
+      .login-link
+        %p.small-text
+          Already have an account?
+          %a{href: login_path} Login!
   -#
   -#
   -#.forth.section{align: "center"}
@@ -73,35 +76,3 @@
   -#.fifth.section{align: "center"}
   -#  .container
   -#    %h1 Try it for free!
-:javascript
-    $(function () {
-
-        $(document).scroll(function(){
-          var scrollPos = $(this).scrollTop();
-          $('.first h1').css({
-            'opacity' : 1-(scrollPos/250)
-          });
-
-          var secondPos = scrollPos - 390;
-          var thirdPos = scrollPos - 980;
-          var forthPos = scrollPos - 1580;
-
-          var secondOpacity = -.00002 * Math.pow(secondPos, 2) + 1;
-          var thirdOpacity = -.00002 * Math.pow(thirdPos, 2) + 1;
-          var forthOpacity = -.00002 * Math.pow(forthPos, 2) + 1;
-
-          $('.second').css({
-            'opacity' : secondOpacity
-          });
-
-          $('.third').css({
-            'opacity' : thirdOpacity
-          });
-
-          $('.forth').css({
-            'opacity' : forthOpacity
-          });
-
-        });
-  });
-
