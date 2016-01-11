@@ -46,3 +46,36 @@
     margin-top: 300px;
   }
 }
+
+.welcome-login {
+  margin-top: 300px;
+
+  .content {
+    background-color: transparent;
+    margin-top: 0;
+
+    .inner-form {
+      h5.login-title {
+        color: $light-grey;
+      }
+    }
+  }
+
+  p.small-text {
+    padding-top: 0px;
+  }
+
+  .welcome-login-link {
+    margin-top: 0px;
+
+    p.small-text {
+      text-align: center;
+      color:  $light-grey;
+      a {
+        color: $pink;
+        font-weight: $bold;
+      }
+    }
+  }
+}
+
