@@ -27,3 +27,15 @@
 .delete:hover {
   background-color: $green-hover;
 }
+
+.white-outline-button {
+  padding: 7px;
+  border: 1px solid white;
+  @include border-radius(3px);
+  @include transition (all .2s);
+}
+
+.white-outline-button:hover {
+  color: $pink;
+  border: 1px solid $pink;
+}

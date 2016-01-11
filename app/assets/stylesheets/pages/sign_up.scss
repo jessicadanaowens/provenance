@@ -1,3 +1,11 @@
+.navbar {
+  background-color: transparent !important;
+
+  a.nav-link {
+    @extend .white-outline-button
+  }
+}
+
 .login, .welcome-login{
   .overlay {
     position: absolute;
@@ -245,6 +253,23 @@
     .inner-form {
       h5.login-title {
         color: $light-grey;
+      }
+    }
+  }
+
+  p.small-text {
+    padding-top: 0px;
+  }
+
+  .welcome-login-link {
+    margin-top: 0px;
+
+    p.small-text {
+      text-align: center;
+      color:  $light-grey;
+      a {
+        color: $pink;
+        font-weight: $bold;
       }
     }
   }
