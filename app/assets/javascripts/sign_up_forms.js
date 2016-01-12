@@ -3,15 +3,15 @@ $(function () {
   newSignUp.checkIfFieldsAreFilledIn();
 
   $("form#sign-up").submit(function(e){
-    newSignUp.signInOrSignUp(e);
+    newSignUp.initialSignUp(e);
   });
 
-  $("form#sign-in").submit(function(e){
-    newSignUp.signInOrSignUp(e);
-  });
+  //$("form#sign-in").submit(function(e){
+  //  newSignUp.signIn(e);
+  //});
 
   $("form#welcome-page-sign-up").submit(function(e){
-    newSignUp.signInOrSignUp(e);
+    newSignUp.initialSignUp(e);
   });
 
   $('input.name').on('click', function () {
@@ -44,10 +44,13 @@ var SignUp = function () {
   this.animationNames = ['password', 'name', 'email'];
   this.errors = {'password': false, 'name': false, 'email': false};
   this.filledin = {'password': false, 'email': false, 'name': false};
-  this.errorCount = 0
+  this.errorCount = 0;
+  this.user = {'password': '', 'email': '', 'name': ''};
 };
 
-SignUp.prototype.signInOrSignUp = function signInOrSignUp (e) {
+SignUp.prototype.initialSignUp = function initialSignUp (e) {
+  e.preventDefault();
+
   var ary = ['name', 'email', 'password'];
 
   for(var i=0; i< ary.length; i++) {
@@ -63,9 +66,18 @@ SignUp.prototype.signInOrSignUp = function signInOrSignUp (e) {
   }
 
   if (this.errorCount > 0) {
-    e.preventDefault();
     return false;
   } else {
+    $.ajax({
+      type: 'POST',
+      url: '/users',
+      data: { user: this.user}
+    }).done(function( data ) {
+      if(data.message == 'success') {
+        window.location.href = "http://localhost:3000/dashboard";
+      }
+    });
+
     return true;
   }
 };
@@ -100,8 +112,13 @@ SignUp.prototype.blank = function blank (string) {
   return ($('input.' + string).val() == '');
 };
 
+SignUp.prototype.captureFieldValue = function captureFieldValue(label) {
+  this.user[label] = $('input.' + label).val();
+};
+
 SignUp.prototype.validateBlankField = function validateBlankField(label) {
-  if ($('input.' + label).val() == '') {
+  this.captureFieldValue(label);
+  if (this.user[label]  == '') {
     $('.error.' + label).append('Oops! ' + label + ' is required.<br>');
     this.errors[label] = true;
     this.errorCount += 1;

@@ -8,6 +8,10 @@
     min-width: 100%;
     min-height: 100%;
     z-index: 2000;
+
+    @include bp-medium {
+      background-color: $background-white;
+    }
   }
   .content {
     @include center-block;
@@ -17,7 +21,7 @@
     margin-bottom: 150px;
     background-color: $white;
 
-    @include bp-small {
+    @include bp-medium {
       width: 100%;
       float: none;
       margin: 0;
@@ -209,10 +213,12 @@
   }
 
   p.small-text {
-
+    padding-top: 0;
+    margin-top: -10px;
     font-size: 13px;
     text-align: center;
     color: gray;
+    line-height: 20px;
 
     a {
       color: $blue;
@@ -228,10 +234,19 @@
     p.small-text {
       text-align: center;
       color:  $light-grey;
+
+      @include bp-medium {
+        color: $medium-grey;
+      }
+
       a {
         color: $pink;
         font-weight: $bold;
       }
+    }
+
+    @include bp-medium {
+      margin-top: -30px;
     }
   }
 }
