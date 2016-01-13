@@ -82,7 +82,6 @@
         url: action,
         data: { item: {title: title, description: description}}
       }).done(function( data ) {
-          debugger;
           closeModal();
           var html = "<li id=" + data.id + "><div class='item'><p>" + data.title + "</p><button class='delete' id=" + data.id + ">Delete</button></div></li>";
 

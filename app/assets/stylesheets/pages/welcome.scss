@@ -14,6 +14,24 @@
     text-align: center;
   }
 
+  h2 {
+    opacity: 0;
+    color: white;
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .container {
+    height: 300px;
+    display: table;
+  }
+
+  .third, .fifth {
+    .container {
+      height: 500px;
+    }
+  }
+
   .first {
     position: fixed;
     background-color: $dark-blue;
@@ -23,32 +41,30 @@
     h1 {
       padding-top: 250px;
     }
-  }
 
-  .second, .third, .forth{
-    opacity: 0;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    .pink-outline-button.static {
+      position: static;
+      font-size: 22px;
+      margin-top: 30px;
+      width: 300px;
+    }
   }
 
   .second {
     margin-top: 600px;
-    background-color: $pink;
+    background-color: $blue2;
   }
 
   .third {
-    margin-top: 300px;
-    background-color: $blue;
+    background-color: $dark-blue;
   }
 
   .forth {
-    margin-top: 300px;
+    background-color: $pink2;
   }
 }
 
 .welcome-login {
-  margin-top: 300px;
-
   .content {
     background-color: transparent;
     margin-top: 0;
@@ -75,7 +91,7 @@
       text-align: center;
       color:  $light-grey;
       a {
-        color: $pink;
+        color: $pink2;
         font-weight: $bold;
       }
     }

@@ -14,9 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery.turbolinks
+//= require helpers
 
 
 $(function () {
+  scrollToAnchor();
 
   $('.current-user-link').on('click', function() {
     $('.current-user-dropdown').slideToggle();

@@ -1,7 +1,7 @@
 .pink-button {
   @include border-radius(3px);
   width: 100%;
-  background-color: $pink;
+  background-color: $pink2;
   color: white;
   padding: 20px;
   font-size: 12px;
@@ -13,29 +13,80 @@
 }
 
 .pink-button:hover {
-  background-color: $pink-hover
+  background-color: $pink4;
 }
 
 .delete {
   @extend .pink-button;
-  background-color: $green;
+  background-color: $aqua2;
   width: 100px;
   padding: 10px;
   margin: 0;
 }
 
 .delete:hover {
-  background-color: $green-hover;
+  background-color: $aqua4;
 }
 
-.white-outline-button {
+.outline-button {
   padding: 7px;
   border: 1px solid white;
+  position: relative;
+  top: -5px;
+  background-color: transparent;
   @include border-radius(3px);
   @include transition (all .2s);
+
+  a {
+    color: $white;
+    @include transition (all .2s);
+  }
 }
 
-.white-outline-button:hover {
-  color: $pink;
-  border: 1px solid $pink;
+.outline-button:hover {
+  color: $white;
+  background-color: $pink2;
+  position: relative;
+  top: -5px;
+  border: 1px solid $pink2;
+
+  a {
+    color: $white;
+    @include transition (all .2s);
+  }
+}
+
+.blue-outline-button {
+  @extend .outline-button;
+  color: $blue2;
+  border: 1px solid $blue2;
+
+  a {
+    color: $blue2;
+  }
+}
+
+.blue-outline-button:hover {
+  @extend .outline-button;
+  color: $white;
+  background-color: $blue2;
+  border: 1px solid $blue2;
+}
+
+
+.pink-outline-button {
+  @extend .outline-button;
+  color: $pink2;
+  border: 1px solid $pink2;
+
+  a {
+    color: $pink2;
+  }
+}
+
+.pink-outline-button:hover {
+  @extend .outline-button;
+  color: $white;
+  background-color: $pink2;
+  border: 1px solid $pink2;
 }

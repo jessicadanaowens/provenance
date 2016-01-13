@@ -15,18 +15,23 @@
     display: inline-block;
     float: left;
     text-decoration: none;
-    margin-right: 50px;
     font-size: 14px;
   }
 
-  a.nav-link.white-outline-button:hover {
-    color: $pink;
-    position: relative;
-    top: 5px;
+  a.nav-link {
+    margin-left: 30px;
+  }
+
+  a.nav-link.pink-outline-button {
+    color: $pink2;
+  }
+
+  a.nav-link.pink-outline-button:hover {
+    color: $white;
   }
 
   #logo {
-    color: $pink;
+    color: $pink2;
   }
 
   a.nav-link {
@@ -55,6 +60,7 @@
       display: none;
       position:absolute;
       top: 50px;
+      margin-left: 30px;
       width: 200px;
       height: 200px;
       background-color: $background-white;

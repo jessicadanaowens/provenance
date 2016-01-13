@@ -42,7 +42,7 @@
           @include border-radius(50%);
           width: 100px;
           height: 100px;
-          background-color: $pink;
+          background-color: $pink2;
           .circle-inner {
             @include center-block;
             @include border-radius(50%);
@@ -67,7 +67,7 @@
           margin-bottom: 14px;
 
           span {
-            color: $pink;
+            color: $pink2;
           }
         }
 
@@ -109,13 +109,13 @@
           from {font-size: 18px;}
           to {font-size: 12px;
               text-transform: uppercase;
-              color: $pink;
+              color: $pink2;
               bottom: 60px;}
         }
 
         @keyframes resetLabel {
           from {font-size: 12px;
-                color: $pink;
+                color: $pink2;
                 bottom: 60px}
           to {font-size: 18px;
             text-transform: lowercase;
@@ -144,12 +144,12 @@
 
         @keyframes input {
           from {border-bottom: 1px solid $light-grey; }
-          to {border-bottom: 1px solid $pink;}
+          to {border-bottom: 1px solid $pink2;}
         }
 
 
         @keyframes resetInput {
-          from {border-bottom: 1px solid $pink; }
+          from {border-bottom: 1px solid $pink2; }
           to {border-bottom: 1px solid $light-grey;}
         }
 
@@ -221,7 +221,7 @@
     line-height: 20px;
 
     a {
-      color: $blue;
+      color: $blue1;
       text-decoration: none;
     }
   }
@@ -240,7 +240,7 @@
       }
 
       a {
-        color: $pink;
+        color: $pink2;
         font-weight: $bold;
       }
     }

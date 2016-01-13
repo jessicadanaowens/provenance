@@ -75,6 +75,8 @@ SignUp.prototype.initialSignUp = function initialSignUp (e) {
     }).done(function( data ) {
       if(data.message == 'success') {
         window.location.href = "http://localhost:3000/dashboard";
+      } else {
+        alert('data')
       }
     });
 
