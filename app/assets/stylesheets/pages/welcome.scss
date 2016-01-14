@@ -35,6 +35,8 @@
   .first {
     position: fixed;
     background-color: $dark-blue;
+    //@include background-gradient($blue2, $dark-blue);
+
     width:100%;
     height: 2000px;
 
@@ -53,14 +55,19 @@
   .second {
     margin-top: 600px;
     background-color: $blue2;
+    @include background-gradient($blue2, $dark-blue);
   }
 
   .third {
     background-color: $dark-blue;
+    @include background-gradient($blue2, $dark-blue)
+
   }
 
   .forth {
     background-color: $pink2;
+    @include background-gradient($pink2, $dark-blue)
+
   }
 }
 

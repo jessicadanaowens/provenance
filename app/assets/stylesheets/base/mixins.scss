@@ -29,6 +29,13 @@
   background-clip: padding-box;  /* stops bg color from leaking outside the border: */
 }
 
+@mixin background-gradient($blue2, $blue4) {
+  background: -webkit-linear-gradient($blue2, $blue4); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient($blue2, $blue4); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient($blue2, $blue4); /* For Firefox 3.6 to 15 */
+  background: linear-gradient($blue2, $blue4); /* Standard syntax */
+}
+
 @mixin drop-shadow($val1) {
   -webkit-box-shadow: $val1;
   -moz-box-shadow: $val1;

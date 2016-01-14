@@ -1,0 +1,1 @@
+$(function(){$(document).scroll(function(){var c=$(this).scrollTop();$(".first h1").css({opacity:1-c/250}),$("button.static").css({opacity:1-c/250});var o=c-390,s=c-790,t=c-1300,a=-2e-5*Math.pow(o,2)+1,i=-2e-5*Math.pow(s,2)+1,h=-2e-5*Math.pow(t,2)+1;$(".second h2").css({opacity:a}),$(".second").css({border:a}),$(".third h2").css({opacity:i}),$(".forth h2").css({opacity:h})})});

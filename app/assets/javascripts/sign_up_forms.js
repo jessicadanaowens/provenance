@@ -73,8 +73,9 @@ SignUp.prototype.initialSignUp = function initialSignUp (e) {
       url: '/users',
       data: { user: this.user}
     }).done(function( data ) {
+      debugger;
       if(data.message == 'success') {
-        window.location.href = "http://localhost:3000/dashboard";
+        window.location.href = "http://localhost:3000/activation";
       } else {
         alert('data')
       }

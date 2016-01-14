@@ -14,9 +14,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
-      flash[:success] = "Welcome to the Sample App!"
-      render json: {message: "success"}
+      @user.send_activation_email
+      render json: {message: 'success'}
     else
       render json: @user.errors.messages
     end
