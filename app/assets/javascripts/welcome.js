@@ -9,7 +9,7 @@ $(function () {
       'opacity' : 1-(scrollPos/250)
     });
 
-    var secondPos = scrollPos - 390;
+    var secondPos = scrollPos - 390 + 'deg';
     var thirdPos = scrollPos - 790;
     var forthPos = scrollPos - 1300;
 
@@ -17,22 +17,19 @@ $(function () {
     var thirdOpacity = -.00002 * Math.pow(thirdPos, 2) + 1;
     var forthOpacity = -.00002 * Math.pow(forthPos, 2) + 1;
 
+    $('.second').css('-webkit-transform', 'rotate(0deg)')
+
     $('.second h2').css({
       'opacity' : secondOpacity
     });
 
-    $('.second').css({
-      'border' : secondOpacity
-    });
+    if (scrollPos > 800) {
+      $('.third').css('-webkit-transform', 'rotate(0deg)')
+    };
 
-    $('.third h2').css({
-      'opacity' : thirdOpacity
-    });
-
-    $('.forth h2').css({
-      'opacity' : forthOpacity
-    });
-
+    if (scrollPos > 1300) {
+      $('.forth').css('-webkit-transform', 'rotate(0deg)')
+    };
   });
 });
 

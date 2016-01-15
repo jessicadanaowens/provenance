@@ -15,14 +15,14 @@
   }
 
   h2 {
-    opacity: 0;
     color: white;
+    max-width: 400px;
     display: table-cell;
     vertical-align: middle;
   }
 
   .container {
-    height: 300px;
+    height: 600px;
     display: table;
   }
 
@@ -35,7 +35,6 @@
   .first {
     position: fixed;
     background-color: $dark-blue;
-    //@include background-gradient($blue2, $dark-blue);
 
     width:100%;
     height: 2000px;
@@ -53,20 +52,28 @@
   }
 
   .second {
-    margin-top: 600px;
+    margin-top: 700px;
     background-color: $blue2;
+    z-index: 1000;
     @include background-gradient($blue2, $dark-blue);
+    -webkit-transform: rotate(50deg);
+    @include transition( all 1s ease);
   }
 
   .third {
-    background-color: $dark-blue;
-    @include background-gradient($blue2, $dark-blue)
-
+    background-color: $aqua2;
+    z-index: 2000;
+    @include background-gradient($blue2, $dark-blue);
+    -webkit-transform: rotate(-15deg);
+    @include transition( all 1s ease);
   }
 
   .forth {
     background-color: $pink2;
-    @include background-gradient($pink2, $dark-blue)
+    z-index: 3000;
+    @include background-gradient($blue2, $dark-blue);
+    -webkit-transform: rotate(-20deg);
+    @include transition( all 1s ease);
 
   }
 }
