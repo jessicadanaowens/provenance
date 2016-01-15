@@ -56,7 +56,7 @@
     background-color: $blue2;
     z-index: 1000;
     @include background-gradient($blue2, $dark-blue);
-    -webkit-transform: rotate(50deg);
+    -webkit-transform: rotate(20deg);
     @include transition( all 1s ease);
   }
 
@@ -77,38 +77,3 @@
 
   }
 }
-
-.welcome-login {
-  .content {
-    background-color: transparent;
-    margin-top: 0;
-
-    .inner-form {
-      h5.login-title {
-        color: $light-grey;
-      }
-    }
-
-    input {
-      color: white !important
-    }
-  }
-
-  p.small-text {
-    padding-top: 0px;
-  }
-
-  .welcome-login-link {
-    margin-top: 0px;
-
-    p.small-text {
-      text-align: center;
-      color:  $light-grey;
-      a {
-        color: $pink2;
-        font-weight: $bold;
-      }
-    }
-  }
-}
-

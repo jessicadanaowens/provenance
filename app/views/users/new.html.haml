@@ -2,29 +2,19 @@
 
 .login
   .overlay
-    .content
-      .outter-form
-        .form-header
-          .circle-outter
-            .circle-inner
-              .circle-inner-inner
-        .inner-form
-          %h5.login-title
+    .white-square-content
+      .outter
+        .inner
+          %h5.title
             Get Started Absoluteley
             %span
               FREE
-          %p.small no credit card needed
 
           = form_for(@user, html: {id: 'sign-up'}) do |f|
             = render 'shared/error_messages'
 
             %input(style="display:none;" type="text" name="somefakename")
             %input(style="display:none;" type="password" name="anotherfakename")
-
-            .field.name
-              = f.label 'Name', class: 'name'
-              = f.text_field :name, autocomplete: 'off', class: 'name'
-              .error.name
 
             .field.email
               = f.label 'Email', class: 'email'
@@ -38,10 +28,6 @@
 
             .field.submit
               = f.submit "sign up free", class: 'submit pink-button'
-              %p.small-text
-                By clicking "Sign Up Free" I agree to Provenance's
-                %a{href: "#"}
-                  Terms of Service
 
     .login-link
       %p.small-text

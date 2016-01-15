@@ -15,6 +15,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml', '~> 4.0', '>= 4.0.7'
 gem 'jquery-turbolinks'
 gem 'responders', '~> 2.0'
+gem 'dotenv-rails', '~> 0.11.1'
+gem 'carrierwave', '~> 0.10.0'
+gem "fog"
+gem 'remotipart', '~> 1.2'
 
 
 

@@ -2,14 +2,10 @@
 
 .login
   .overlay
-    .content
-      .outter-form
-        .form-header
-          .circle-outter
-            .circle-inner
-              .circle-inner-inner
-        .inner-form
-          %h5.login-title Log In
+    .white-square-content
+      .outter
+        .inner
+          %h5.title Log In
 
           = form_for(:session, url: login_path, autocomplete: 'off', html: {id: 'sign-in'}) do |f|
             = @error

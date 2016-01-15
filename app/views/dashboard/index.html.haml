@@ -12,6 +12,7 @@
         -@items.each do |item|
           %li{id: item.id}
             .item
+              %img{src: item.image.url}
               %p= item.title
               %button.delete{id: item.id} Delete
 #modal
@@ -20,7 +21,11 @@
       %p.close-modal &#10005;
     .form.new
       %h3.title Add New Item
-      =form_for Item.new, html: {id: 'new-item'} do |f|
+      =form_for Item.new, html: {id: 'new-item', :multipart => true}, :remote => true do |f|
+        .field
+          = f.file_field :image, id: 'image'
+          = f.hidden_field :image_cache
+
         .field
           =f.text_field :title, placeholder:'title', id: 'title'
 
@@ -43,6 +48,7 @@
 
 
 :javascript
+
   $(function () {
 
     //event handlers
@@ -68,27 +74,15 @@
       closeModal();
     });
 
-    $("form#new-item").submit(function(event){
-      event.preventDefault();
-
-      var action = $(this).attr('action');
-      var method = $(this).attr('method');
-
-      var description = $(this).find('#description').val();
-      var title = $(this).find('#title').val();
-
-       $.ajax({
-        method: method,
-        url: action,
-        data: { item: {title: title, description: description}}
-      }).done(function( data ) {
-          closeModal();
-          var html = "<li id=" + data.id + "><div class='item'><p>" + data.title + "</p><button class='delete' id=" + data.id + ">Delete</button></div></li>";
-
-          $('ul.items').append(html);
-        });
-
-      return false;
+    $('form#new-item').bind('ajax:complete', function(evt, xhr) {
+      if (xhr.status == '200') {
+        closeModal();
+        var data = JSON.parse(xhr.responseText)
+        var html = "<li id=" + data.id + "><div class='item'><img src=" + data.image.url + "><p>" + data.title + "</p><button class='delete' id=" + data.id + ">Delete</button></div></li>";
+        $('ul.items').append(html);
+      } else {
+        alert('your item could not be created')
+      }
     });
   });
 

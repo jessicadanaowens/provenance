@@ -15,6 +15,8 @@
 //= require turbolinks
 //= require jquery.turbolinks
 //= require helpers
+//= require jquery.remotipart
+
 
 
 $(function () {

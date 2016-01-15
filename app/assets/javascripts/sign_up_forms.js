@@ -6,52 +6,35 @@ $(function () {
     newSignUp.initialSignUp(e);
   });
 
-  //$("form#sign-in").submit(function(e){
-  //  newSignUp.signIn(e);
-  //});
-
   $("form#welcome-page-sign-up").submit(function(e){
     newSignUp.initialSignUp(e);
   });
 
-  $('input.name').on('click', function () {
-    newSignUp.runAnimations('name');
-    newSignUp.resetAnimation('password');
-    newSignUp.resetAnimation('email');
-  });
-
-  $('input.email').on('click', function () {
+  $('input.email').on('click keydown foucs', function () {
     newSignUp.runAnimations('email');
     newSignUp.resetAnimation('password');
-    newSignUp.resetAnimation('name');
   });
 
-  $('input.password').on('click', function () {
+  $('input.password').on('click keydown focus', function () {
     newSignUp.runAnimations('password');
     newSignUp.resetAnimation('email');
-    newSignUp.resetAnimation('name');
-  });
-
-  $('html').click(function () {
-    if (!newSignUp.focusedOn('email') && !newSignUp.focusedOn('password') && !newSignUp.focusedOn('name')) {
-      newSignUp.resetAnimationsFor(this.animationNames);
-    }
   });
 });
 
 var SignUp = function () {
-  this.animations = {"password": false, "email": false, "name": false};
-  this.animationNames = ['password', 'name', 'email'];
-  this.errors = {'password': false, 'name': false, 'email': false};
-  this.filledin = {'password': false, 'email': false, 'name': false};
+  this.animations = {"password": false, "email": false};
+  this.animationNames = ['password', 'email'];
+  this.errors = {'password': false, 'email': false};
+  this.filledin = {'password': false, 'email': false};
   this.errorCount = 0;
-  this.user = {'password': '', 'email': '', 'name': ''};
+  this.user = {'password': '', 'email': ''};
 };
 
 SignUp.prototype.initialSignUp = function initialSignUp (e) {
   e.preventDefault();
+  this.errorCount = 0;
 
-  var ary = ['name', 'email', 'password'];
+  var ary = ['email', 'password'];
 
   for(var i=0; i< ary.length; i++) {
     this.clearOldValidation(ary[i]);
@@ -73,11 +56,11 @@ SignUp.prototype.initialSignUp = function initialSignUp (e) {
       url: '/users',
       data: { user: this.user}
     }).done(function( data ) {
-      debugger;
       if(data.message == 'success') {
         window.location.href = "http://localhost:3000/activation";
-      } else {
-        alert('data')
+      } else if (data.email) {
+        $('.error.email').append(data.email);
+        $('.error.email').css('border-top', '3px solid red');
       }
     });
 
@@ -86,12 +69,6 @@ SignUp.prototype.initialSignUp = function initialSignUp (e) {
 };
 
 SignUp.prototype.checkIfFieldsAreFilledIn = function checkIfFieldsAreFilledIn () {
-  if ($('input.name').val() != "") {
-    $('label.name').css({'font-size': '12px', 'text-transform': 'uppercase', 'color': 'grey', 'bottom': '60px'});
-    this.animations['name'] = true;
-    this.filledin['name'] = true;
-  };
-
   if ($('input.email').val() != "") {
     $('label.email').css({'font-size': '12px', 'text-transform': 'uppercase', 'color': 'grey', 'bottom': '60px'});
     this.animations['email'] = true;
