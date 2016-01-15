@@ -1,0 +1,6 @@
+W, [2016-01-15T16:45:52.325928 #29306]  WARN -- : DEPRECATION WARNING on line 70 of /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/susy-2.2.6/sass/susy/output/support/_support.scss: #{} interpolation near operators will be simplified
+in a future version of Sass. To preserve the current behavior, use quotes:
+
+  unquote("#{$_type}-exists")
+
+
