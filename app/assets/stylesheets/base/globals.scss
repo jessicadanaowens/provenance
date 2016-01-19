@@ -74,21 +74,21 @@ body {
 }
 
 #modal {
-  @include border-radius(3px);
-  display: none;
-  background-color: $background-white;
-  padding: 50px;
-  z-index: 3000;
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  width: 200px;
+    @include border-radius(3px);
+    display: none;
+    background-color: $background-white;
+    z-index: 3000;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    width: 300px;
   }
+
   .modal-content {
-  position: relative;
-}
+    position: relative;
+  }
 
 .close {
   position:absolute;
@@ -152,4 +152,20 @@ body {
       color: $pink2;
     }
   }
+}
+
+.hidden {
+  display: none;
+}
+
+.span12 {
+  @include span(12 of 12);
+}
+
+.span6 {
+  @include span(6 of 12);
+}
+
+.span6last {
+  @include span(6 of 12 last);
 }

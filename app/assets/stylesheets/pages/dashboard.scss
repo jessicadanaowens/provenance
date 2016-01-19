@@ -2,9 +2,13 @@
   background-color: $dark-blue !important;
 }
 .dashboard-nav {
-  height: 80px;
+  height: 110px;
   margin-top: 65px;
   background-color: $dark-blue;
+
+  .container {
+    padding-top: 30px;
+  }
 
   h2 {
     color: white;
@@ -67,6 +71,16 @@
         position: relative;
         top: 30px;
       }
+
+      img {
+        width: 100px;
+      }
+    }
+  }
+
+  .form.new {
+    h3.title {
+      border-bottom: 1px solid $light-grey;
     }
   }
 }

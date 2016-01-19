@@ -21,28 +21,34 @@
       %p.close-modal &#10005;
     .form.new
       %h3.title Add New Item
-      =form_for Item.new, html: {id: 'new-item', :multipart => true}, :remote => true do |f|
-        .field
-          = f.file_field :image, id: 'image'
-          = f.hidden_field :image_cache
+      .span12
+        .body
+          .downloaded-images.hidden
+            .content
+              %img(id="uploadedImage" src="#" alt="your image")
+          .main-form
+            =form_for Item.new, html: {id: 'new-item', :multipart => true}, :remote => true do |f|
+              .upload
+                %p +
+              = f.file_field :image, id: 'image'
+              = f.hidden_field :image_cache
 
-        .field
-          =f.text_field :title, placeholder:'title', id: 'title'
+              =f.text_field :title, placeholder:'title', id: 'title'
 
-        .field
-          =f.text_field :description, placeholder:'description', id: 'description'
 
-        .field
-          =f.date_field :purchase_date, placeholder:'purchase date', class: 'purchase-date'
+              =f.text_field :description, placeholder:'description', id: 'description'
 
-        .field
-          =f.number_field :purchase_price, placeholder:'purchase price', class: 'purchase-price'
 
-        .field
-          =f.number_field :estimated_value, placeholder:'estimated value', class: 'estimated-value'
+              =f.date_field :purchase_date, placeholder:'purchase date', class: 'purchase-date'
 
-        .field
-          =f.submit "Create", class: 'pink-button'
+
+              =f.number_field :purchase_price, placeholder:'purchase price', class: 'purchase-price'
+
+
+              =f.number_field :estimated_value, placeholder:'estimated value', class: 'estimated-value'
+
+
+              =f.submit "Create", class: 'submit-button'
 
 
 
@@ -50,12 +56,34 @@
 :javascript
 
   $(function () {
+    imageChange();
+
+    function imageChange () {
+      $("#image").change(function(){
+        readURL(this);
+      });
+    };
+
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $('.downloaded-images').removeClass('hidden');
+          $('#uploadedImage')
+            .attr('src', e.target.result)
+            .width(150)
+        };
+
+        reader.readAsDataURL(input.files[0])
+      }
+    }
 
     //event handlers
 
     $('.add').on('click', function () {
       $('#modal-overlay').toggle();
       $('#modal').slideToggle();
+      imageChange();
     });
 
     $(document).on('click', '.delete', function() {
@@ -89,6 +117,10 @@
   var closeModal = function closeModal () {
     $('#modal').toggle();
     $('#modal-overlay').toggle('slow');
+    $('#new-item').find('input:text').val('');
+    $('input[type="file"]').val(null);
+    $('#uploadedImage').attr('src', '')
+    $('#image').val('');
   }
 
 

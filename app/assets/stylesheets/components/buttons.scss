@@ -16,6 +16,11 @@
   background-color: $pink4;
 }
 
+.submit-button {
+  @extend .pink-button;
+  padding: 0;
+}
+
 .delete {
   @extend .pink-button;
   background-color: $aqua2;

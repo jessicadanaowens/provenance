@@ -22,7 +22,6 @@ gem 'remotipart', '~> 1.2'
 
 
 
-
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

@@ -1,0 +1,396 @@
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (2.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example@railstutorial.org') LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+
+
+Started GET "/" for ::1 at 2016-01-18 19:04:55 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered shared/_error_messages.html.erb (3.2ms)
+  Rendered welcome/index.html.haml within layouts/application (358.1ms)
+  Rendered layouts/_header.html.haml (3.6ms)
+Completed 200 OK in 673ms (Views: 640.1ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/" for ::1 at 2016-01-18 19:04:56 -0700
+Processing by WelcomeController#index as HTML
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered welcome/index.html.haml within layouts/application (11.9ms)
+  Rendered layouts/_header.html.haml (0.5ms)
+Completed 200 OK in 73ms (Views: 71.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2016-01-18 19:04:58 -0700
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/application (87.4ms)
+  Rendered layouts/_header.html.haml (2.8ms)
+Completed 200 OK in 146ms (Views: 144.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2016-01-18 19:05:04 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"W0jagQDYD2BpseDk3w5R90s2JHdM67s3GwAX2qadAPwjCi6FOiCfC0Cvjn9gLurRMNCqT9HxzfTq5F7iDa8Z0w==", "somefakename"=>"oren-bergstrom", "anotherfakename"=>"foobar", "session"=>{"email"=>"example@railstutorial.org", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (11.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "example@railstutorial.org"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 132ms (ActiveRecord: 12.2ms)
+
+
+Started GET "/dashboard" for ::1 at 2016-01-18 19:05:04 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.7ms)[0m  SELECT "items".* FROM "items"
+  Rendered dashboard/index.html.haml within layouts/application (25.3ms)
+  Rendered layouts/_header.html.haml (0.7ms)
+Completed 200 OK in 175ms (Views: 163.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/dashboard" for ::1 at 2016-01-18 19:05:04 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items"
+  Rendered dashboard/index.html.haml within layouts/application (2.8ms)
+  Rendered layouts/_header.html.haml (0.6ms)
+Completed 200 OK in 68ms (Views: 66.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/items" for ::1 at 2016-01-18 19:05:16 -0700
+Processing by ItemsController#create as JSON
+  Parameters: {"utf8"=>"✓", "item"=>{"image_cache"=>"", "title"=>"", "description"=>"", "purchase_date"=>"", "purchase_price"=>"", "estimated_value"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f8a12270c88 @tempfile=#<Tempfile:/var/folders/c1/hxlz9ftn715dw1zfc7d6sws40000gn/T/RackMultipart20160118-37634-13xxazv.jpeg>, @original_filename="room2.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"item[image]\"; filename=\"room2.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create", "remotipart_submitted"=>"true", "authenticity_token"=>"mpPqbrrum8cJhBjGRL2SSl2NrYg66tQrWM36gfz6/E3i0R5qgBYLrCCadl37nSlsJmsjsKfwouipKbO5V8jlYg==", "X-Requested-With"=>"IFrame", "X-Http-Accept"=>"text/javascript, application/javascript, application/ecmascript, application/x-ecmascript, */*; q=0.01"}
+Unpermitted parameters: image_cache, purchase_date, purchase_price, estimated_value
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (18.1ms)[0m  INSERT INTO "items" ("title", "description", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", ""], ["description", ""], ["image", "room2.jpeg"], ["created_at", "2016-01-19 02:05:16.983683"], ["updated_at", "2016-01-19 02:05:16.983683"]]
+  [1m[36m (8.7ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 767ms (Views: 1.1ms | ActiveRecord: 26.9ms)
+
+
+Started DELETE "/logout" for ::1 at 2016-01-18 19:05:28 -0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mpPqbrrum8cJhBjGRL2SSl2NrYg66tQrWM36gfz6/E3i0R5qgBYLrCCadl37nSlsJmsjsKfwouipKbO5V8jlYg=="}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 104ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2016-01-18 19:05:28 -0700
+Processing by WelcomeController#index as HTML
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered welcome/index.html.haml within layouts/application (13.7ms)
+  Rendered layouts/_header.html.haml (0.4ms)
+Completed 200 OK in 71ms (Views: 70.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2016-01-18 19:05:39 -0700
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"password"=>"[FILTERED]", "email"=>"sample@gmail.com"}}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('sample@gmail.com') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "sample@gmail.com"], ["password_digest", "$2a$10$Zb.Uz6EYF/m4prNs0IKOPe/xnkFG.HDhfietNjiS3G9KLr1v6nLvm"], ["created_at", "2016-01-19 02:05:39.626733"], ["updated_at", "2016-01-19 02:05:39.626733"], ["activation_digest", "$2a$10$DJp4j/fggyFg32vWxKj1MO9MkfKiHs4p1nGvlQuO4PbbG3te0zfWK"]]
+  [1m[35m (8.1ms)[0m  COMMIT
+Completed 500 Internal Server Error in 273ms
+
+NoMethodError (undefined method `send_activation_email' for #<Class:0x007f8a0e3c25e0>):
+  app/controllers/users_controller.rb:17:in `create'
+
+
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.1ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.0ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (29.7ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.8ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (22.5ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (52.3ms)
+
+
+Started GET "/users" for ::1 at 2016-01-18 19:05:49 -0700
+
+AbstractController::ActionNotFound (The action 'index' could not be found for UsersController):
+  actionpack (4.2.0) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  remotipart (1.2.1) lib/remotipart/middleware.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/jessicaowens/.rvm/rubies/ruby-2.0.0-p598/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/jessicaowens/.rvm/rubies/ruby-2.0.0-p598/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/jessicaowens/.rvm/rubies/ruby-2.0.0-p598/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.7ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (15.9ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (37.0ms)
+
+
+Started GET "/" for ::1 at 2016-01-18 19:07:28 -0700
+Processing by WelcomeController#index as HTML
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered welcome/index.html.haml within layouts/application (12.0ms)
+  Rendered layouts/_header.html.haml (0.3ms)
+Completed 200 OK in 85ms (Views: 71.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/application.self-5e603f546cff04e8bd547f299d2bdbdd05dd72f78a8fb31be5758e498b827788.css?body=1" for ::1 at 2016-01-18 19:07:29 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-01-18 19:07:29 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2016-01-18 19:07:29 -0700
+
+
+Started GET "/assets/jquery.turbolinks.self-176b9819f30444d441e820bbccd3264fe57753aeafd54dec732b0dbc77129a2a.js?body=1" for ::1 at 2016-01-18 19:07:29 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2016-01-18 19:07:29 -0700
+
+
+Started GET "/assets/helpers.self-08870579ca41ea1d807453f1208ea3bcb3f624c3e8a89ab56379d1b3c44ca6db.js?body=1" for ::1 at 2016-01-18 19:07:29 -0700
+
+
+Started GET "/assets/jquery.iframe-transport.self-9d6de1e3d97369f20a85456477db38a3d2b674761f4a252275201ec0272793a4.js?body=1" for ::1 at 2016-01-18 19:07:29 -0700
+
+
+Started GET "/assets/jquery.remotipart.self-337cc0be48c9612bd2dff6eebbc740a488456bba7c0d29da6b63834752826ecd.js?body=1" for ::1 at 2016-01-18 19:07:29 -0700
+
+
+Started GET "/assets/application.self-f1ae1c62fa2d557e94684a2b68dd5cc3b1dbbf25086d88829ff4ffd0496bf81a.js?body=1" for ::1 at 2016-01-18 19:07:29 -0700
+
+
+Started GET "/assets/welcome.self-e8d76971c310821330e4d98fa9e2a2826fc808fbc641b8f3f3c8016690e29135.js?body=1" for ::1 at 2016-01-18 19:07:29 -0700
+
+
+Started GET "/assets/sign_up_forms.self-da2afaecae363678d435b5bc4695e54b02ebcbd659832a85bae591f34eed884e.js?body=1" for ::1 at 2016-01-18 19:07:29 -0700
+
+
+Started POST "/users" for ::1 at 2016-01-18 19:07:39 -0700
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"password"=>"[FILTERED]", "email"=>"asdfds@gmail.com"}}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('asdfds@gmail.com') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "asdfds@gmail.com"], ["password_digest", "$2a$10$SPek9sFE7ifBiLnXNPLskurjV.C0jD.rKDsJM9Ds3WFl8UZR1wiKu"], ["created_at", "2016-01-19 02:07:39.598616"], ["updated_at", "2016-01-19 02:07:39.598616"], ["activation_digest", "$2a$10$RhtOzJ2jm8VM2U75ifR9vOtc8wCTluqJIVY01/1Vvld2aMrrsslx6"]]
+  [1m[35m (8.5ms)[0m  COMMIT
+Completed 500 Internal Server Error in 265ms
+
+NoMethodError (undefined method `send_activation_email' for #<Class:0x007f8a0e6b7930>):
+  app/controllers/users_controller.rb:20:in `create'
+
+
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.7ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.8ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (22.7ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (14.2ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (30.7ms)
+
+
+Started POST "/users" for ::1 at 2016-01-18 19:08:16 -0700
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"password"=>"[FILTERED]", "email"=>"asdfds@gmail.com"}}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('asdfds@gmail.com') LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+Completed 200 OK in 103ms (Views: 0.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/" for ::1 at 2016-01-18 19:08:22 -0700
+Processing by WelcomeController#index as HTML
+  Rendered shared/_error_messages.html.erb (0.2ms)
+  Rendered welcome/index.html.haml within layouts/application (17.3ms)
+  Rendered layouts/_header.html.haml (0.4ms)
+Completed 200 OK in 79ms (Views: 78.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-5e603f546cff04e8bd547f299d2bdbdd05dd72f78a8fb31be5758e498b827788.css?body=1" for ::1 at 2016-01-18 19:08:22 -0700
+
+
+Started GET "/assets/helpers.self-08870579ca41ea1d807453f1208ea3bcb3f624c3e8a89ab56379d1b3c44ca6db.js?body=1" for ::1 at 2016-01-18 19:08:22 -0700
+
+
+Started GET "/assets/jquery.turbolinks.self-176b9819f30444d441e820bbccd3264fe57753aeafd54dec732b0dbc77129a2a.js?body=1" for ::1 at 2016-01-18 19:08:23 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2016-01-18 19:08:23 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2016-01-18 19:08:23 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-01-18 19:08:23 -0700
+
+
+Started GET "/assets/jquery.remotipart.self-337cc0be48c9612bd2dff6eebbc740a488456bba7c0d29da6b63834752826ecd.js?body=1" for ::1 at 2016-01-18 19:08:23 -0700
+
+
+Started GET "/assets/application.self-f1ae1c62fa2d557e94684a2b68dd5cc3b1dbbf25086d88829ff4ffd0496bf81a.js?body=1" for ::1 at 2016-01-18 19:08:23 -0700
+
+
+Started GET "/assets/jquery.iframe-transport.self-9d6de1e3d97369f20a85456477db38a3d2b674761f4a252275201ec0272793a4.js?body=1" for ::1 at 2016-01-18 19:08:23 -0700
+
+
+Started GET "/assets/welcome.self-e8d76971c310821330e4d98fa9e2a2826fc808fbc641b8f3f3c8016690e29135.js?body=1" for ::1 at 2016-01-18 19:08:23 -0700
+
+
+Started GET "/assets/sign_up_forms.self-da2afaecae363678d435b5bc4695e54b02ebcbd659832a85bae591f34eed884e.js?body=1" for ::1 at 2016-01-18 19:08:23 -0700
+
+
+Started POST "/users" for ::1 at 2016-01-18 19:08:34 -0700
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"password"=>"[FILTERED]", "email"=>"asgds@gmail.com"}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('asgds@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["email", "asgds@gmail.com"], ["password_digest", "$2a$10$m3ZJl6k/KqudowC5kZtavufhQ/SKXd1wd0xnYKjzhvAGIryzESRBq"], ["created_at", "2016-01-19 02:08:34.528318"], ["updated_at", "2016-01-19 02:08:34.528318"], ["activation_digest", "$2a$10$Eu4NQ.9midvcBzQ4dx.UsuPP6o53RAriKD8v.tn4dDWtgdDsgAjLe"]]
+  [1m[36m (7.9ms)[0m  [1mCOMMIT[0m
+  Rendered user_mailer/account_activation.html.erb within layouts/mailer (3.1ms)
+  Rendered user_mailer/account_activation.text.erb within layouts/mailer (1.4ms)
+
+UserMailer#account_activation: processed outbound mail in 337.4ms
+
+Sent mail to asgds@gmail.com (14.2ms)
+Date: Mon, 18 Jan 2016 19:08:35 -0700
+From: noreply@example.com
+To: asgds@gmail.com
+Message-ID: <569d9aa311e27_93023fc50910454c8003e@Jessicas-MacBook-Air-2.local.mail>
+Subject: Account activation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_569d9aa3f443_93023fc50910454c7997a";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_569d9aa3f443_93023fc50910454c7997a
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi ,
+
+Welcome to the Sample App! Click on the link below to activate your account:
+
+http://localhost:3000/account_activations/hckMY5W9yAWNJeIYhNO07w/edit?email=asgds%40gmail.com
+
+
+----==_mimepart_569d9aa3f443_93023fc50910454c7997a
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <h1>Sample App</h1>
+
+<p>Hi ,</p>
+
+<p>
+  Welcome to the Sample App! Click on the link below to activate your account:
+</p>
+
+<a href="http://localhost:3000/account_activations/hckMY5W9yAWNJeIYhNO07w/edit?email=asgds%40gmail.com">Activate</a>
+  </body>
+</html>
+
+----==_mimepart_569d9aa3f443_93023fc50910454c7997a--
+
+Completed 200 OK in 644ms (Views: 0.4ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/activation" for ::1 at 2016-01-18 19:08:35 -0700
+Processing by ActivationsController#index as HTML
+  Rendered activations/index.html.haml within layouts/application (3.0ms)
+  Rendered layouts/_header.html.haml (0.4ms)
+Completed 200 OK in 61ms (Views: 59.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2016-01-18 19:08:35 -0700
+
+
+Started GET "/assets/application.self-5e603f546cff04e8bd547f299d2bdbdd05dd72f78a8fb31be5758e498b827788.css?body=1" for ::1 at 2016-01-18 19:08:35 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2016-01-18 19:08:35 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-01-18 19:08:35 -0700
+
+
+Started GET "/assets/jquery.turbolinks.self-176b9819f30444d441e820bbccd3264fe57753aeafd54dec732b0dbc77129a2a.js?body=1" for ::1 at 2016-01-18 19:08:35 -0700
+
+
+Started GET "/assets/helpers.self-08870579ca41ea1d807453f1208ea3bcb3f624c3e8a89ab56379d1b3c44ca6db.js?body=1" for ::1 at 2016-01-18 19:08:35 -0700
+
+
+Started GET "/assets/jquery.iframe-transport.self-9d6de1e3d97369f20a85456477db38a3d2b674761f4a252275201ec0272793a4.js?body=1" for ::1 at 2016-01-18 19:08:35 -0700
+
+
+Started GET "/assets/jquery.remotipart.self-337cc0be48c9612bd2dff6eebbc740a488456bba7c0d29da6b63834752826ecd.js?body=1" for ::1 at 2016-01-18 19:08:35 -0700
+
+
+Started GET "/assets/application.self-f1ae1c62fa2d557e94684a2b68dd5cc3b1dbbf25086d88829ff4ffd0496bf81a.js?body=1" for ::1 at 2016-01-18 19:08:35 -0700
