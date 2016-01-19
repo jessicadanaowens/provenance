@@ -57,7 +57,7 @@ SignUp.prototype.initialSignUp = function initialSignUp (e) {
       data: { user: this.user}
     }).done(function( data ) {
       if(data.message == 'success') {
-        window.location.href = "http://localhost:3000/activation";
+        window.location.href = "http://localhost:3000/dashboard";
       } else if (data.email) {
         $('.error.email').append(data.email);
         $('.error.email').css('border-top', '3px solid red');
