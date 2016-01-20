@@ -60,7 +60,7 @@ SignUp.prototype.initialSignUp = function initialSignUp (e) {
         if (window.location.href == "http://localhost:3000/") {
           window.location.href = "http://localhost:3000/dashboard";
         } else {
-          window.location.href = "http://provenance-art.herokuapp/dashboard";
+          window.location.href = "https://provenance-art.herokuapp.com/dashboard";
         }
         //do nothing
       } else if (data.email) {
