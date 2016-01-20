@@ -10,7 +10,7 @@ $(function () {
     newSignUp.initialSignUp(e);
   });
 
-  $('input.email').on('click keydown foucs', function () {
+  $('input.email').on('click keydown focus', function () {
     newSignUp.runAnimations('email');
     newSignUp.resetAnimation('password');
   });
@@ -57,7 +57,12 @@ SignUp.prototype.initialSignUp = function initialSignUp (e) {
       data: { user: this.user}
     }).done(function( data ) {
       if(data.message == 'success') {
-        window.location.href = "http://localhost:3000/dashboard";
+        if (window.location.href == "http://localhost:3000/") {
+          window.location.href = "http://localhost:3000/dashboard";
+        } else {
+          window.location.href = "http://provenance-art.herokuapp/dashboard";
+        }
+        //do nothing
       } else if (data.email) {
         $('.error.email').append(data.email);
         $('.error.email').css('border-top', '3px solid red');
