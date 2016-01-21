@@ -26,6 +26,8 @@
 
   a.nav-link.pink-outline-button {
     color: $pink2;
+    position: relative;
+    top: 10px;
   }
 
   a.nav-link.pink-outline-button:hover {
@@ -35,6 +37,7 @@
   #logo {
     color: $pink2;
     font-family: Lobster, cursive; font-size: 2em;
+    letter-spacing: .09em;
   }
 
   a.nav-link {

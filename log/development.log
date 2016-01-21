@@ -690,3 +690,342 @@ Processing by DashboardController#index as HTML
   Rendered dashboard/index.html.haml within layouts/application (3.3ms)
   Rendered layouts/_header.html.haml (0.5ms)
 Completed 200 OK in 74ms (Views: 71.4ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/logout" for ::1 at 2016-01-19 17:58:21 -0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"PIlrKMu0uT3yeo//nUZLPSvJa3SGyu/RnfZKRYgmRTZEy58s8UwpVttk4WQiZvAbUC/lTBvQmRJsEgN9IxRcGQ=="}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2016-01-19 17:58:21 -0700
+Processing by WelcomeController#index as HTML
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered welcome/index.html.haml within layouts/application (124.0ms)
+DEPRECATION WARNING on line 70 of /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/susy-2.2.6/sass/susy/output/support/_support.scss: #{} interpolation near operators will be simplified
+in a future version of Sass. To preserve the current behavior, use quotes:
+
+  unquote("#{$_type}-exists")
+
+
+  Rendered layouts/_header.html.haml (3.1ms)
+Completed 200 OK in 1598ms (Views: 1597.1ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/logout" for ::1 at 2016-01-19 17:58:23 -0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"PIlrKMu0uT3yeo//nUZLPSvJa3SGyu/RnfZKRYgmRTZEy58s8UwpVttk4WQiZvAbUC/lTBvQmRJsEgN9IxRcGQ=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-01-19 17:58:23 -0700
+Processing by WelcomeController#index as HTML
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered welcome/index.html.haml within layouts/application (11.0ms)
+  Rendered layouts/_header.html.haml (0.6ms)
+Completed 200 OK in 159ms (Views: 158.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-94695fb4efa3577f5fa8ab532d3a667067e1f853e3aff3a970d286ced95edbd2.css?body=1" for ::1 at 2016-01-19 17:58:23 -0700
+
+
+Started GET "/assets/sign_up_forms.self-28f6bd86766e0c9aa2c734952d8787dac4a47481096c7e7724082565b74fef69.js?body=1" for ::1 at 2016-01-19 17:58:23 -0700
+
+
+Started GET "/" for ::1 at 2016-01-19 17:59:39 -0700
+Processing by WelcomeController#index as HTML
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered welcome/index.html.haml within layouts/application (11.1ms)
+  Rendered layouts/_header.html.haml (0.4ms)
+Completed 200 OK in 1346ms (Views: 1344.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-377f9b06c9460697483a1fa8413121f3d15ce1d8f3b3757850dd05cd4aa78785.css?body=1" for ::1 at 2016-01-19 17:59:40 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2016-01-19 17:59:40 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-01-19 17:59:40 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2016-01-19 17:59:40 -0700
+
+
+Started GET "/assets/jquery.turbolinks.self-176b9819f30444d441e820bbccd3264fe57753aeafd54dec732b0dbc77129a2a.js?body=1" for ::1 at 2016-01-19 17:59:40 -0700
+
+
+Started GET "/assets/jquery.iframe-transport.self-9d6de1e3d97369f20a85456477db38a3d2b674761f4a252275201ec0272793a4.js?body=1" for ::1 at 2016-01-19 17:59:40 -0700
+
+
+Started GET "/assets/helpers.self-08870579ca41ea1d807453f1208ea3bcb3f624c3e8a89ab56379d1b3c44ca6db.js?body=1" for ::1 at 2016-01-19 17:59:40 -0700
+
+
+Started GET "/assets/jquery.remotipart.self-337cc0be48c9612bd2dff6eebbc740a488456bba7c0d29da6b63834752826ecd.js?body=1" for ::1 at 2016-01-19 17:59:40 -0700
+
+
+Started GET "/assets/application.self-f1ae1c62fa2d557e94684a2b68dd5cc3b1dbbf25086d88829ff4ffd0496bf81a.js?body=1" for ::1 at 2016-01-19 17:59:40 -0700
+
+
+Started GET "/assets/welcome.self-e8d76971c310821330e4d98fa9e2a2826fc808fbc641b8f3f3c8016690e29135.js?body=1" for ::1 at 2016-01-19 17:59:40 -0700
+
+
+Started GET "/assets/sign_up_forms.self-28f6bd86766e0c9aa2c734952d8787dac4a47481096c7e7724082565b74fef69.js?body=1" for ::1 at 2016-01-19 17:59:40 -0700
+
+
+Started GET "/" for ::1 at 2016-01-19 18:00:02 -0700
+Processing by WelcomeController#index as HTML
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered welcome/index.html.haml within layouts/application (11.9ms)
+  Rendered layouts/_header.html.haml (0.7ms)
+Completed 200 OK in 1454ms (Views: 1452.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2016-01-19 18:00:03 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-01-19 18:00:03 -0700
+
+
+Started GET "/assets/jquery.turbolinks.self-176b9819f30444d441e820bbccd3264fe57753aeafd54dec732b0dbc77129a2a.js?body=1" for ::1 at 2016-01-19 18:00:03 -0700
+
+
+Started GET "/assets/application.self-a3f8bfe4abf4592af65221c90a6c507953a70254074a87cbd97dd11a1ec69db0.css?body=1" for ::1 at 2016-01-19 18:00:03 -0700
+
+
+Started GET "/assets/helpers.self-08870579ca41ea1d807453f1208ea3bcb3f624c3e8a89ab56379d1b3c44ca6db.js?body=1" for ::1 at 2016-01-19 18:00:03 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2016-01-19 18:00:03 -0700
+
+
+Started GET "/assets/jquery.iframe-transport.self-9d6de1e3d97369f20a85456477db38a3d2b674761f4a252275201ec0272793a4.js?body=1" for ::1 at 2016-01-19 18:00:03 -0700
+
+
+Started GET "/assets/jquery.remotipart.self-337cc0be48c9612bd2dff6eebbc740a488456bba7c0d29da6b63834752826ecd.js?body=1" for ::1 at 2016-01-19 18:00:03 -0700
+
+
+Started GET "/assets/application.self-f1ae1c62fa2d557e94684a2b68dd5cc3b1dbbf25086d88829ff4ffd0496bf81a.js?body=1" for ::1 at 2016-01-19 18:00:03 -0700
+
+
+Started GET "/assets/welcome.self-e8d76971c310821330e4d98fa9e2a2826fc808fbc641b8f3f3c8016690e29135.js?body=1" for ::1 at 2016-01-19 18:00:03 -0700
+
+
+Started GET "/assets/sign_up_forms.self-28f6bd86766e0c9aa2c734952d8787dac4a47481096c7e7724082565b74fef69.js?body=1" for ::1 at 2016-01-19 18:00:03 -0700
+
+
+Started GET "/" for ::1 at 2016-01-19 18:01:14 -0700
+Processing by WelcomeController#index as HTML
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered welcome/index.html.haml within layouts/application (20.0ms)
+  Rendered layouts/_header.html.haml (0.8ms)
+Completed 200 OK in 1347ms (Views: 1345.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2016-01-19 18:01:16 -0700
+
+
+Started GET "/assets/application.self-1eff4d91b4ee8faca2b39ff4c425ae894257b9790ddaf9f015cde89e0f8121cf.css?body=1" for ::1 at 2016-01-19 18:01:16 -0700
+
+
+Started GET "/assets/helpers.self-08870579ca41ea1d807453f1208ea3bcb3f624c3e8a89ab56379d1b3c44ca6db.js?body=1" for ::1 at 2016-01-19 18:01:16 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2016-01-19 18:01:16 -0700
+
+
+Started GET "/assets/jquery.turbolinks.self-176b9819f30444d441e820bbccd3264fe57753aeafd54dec732b0dbc77129a2a.js?body=1" for ::1 at 2016-01-19 18:01:16 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-01-19 18:01:16 -0700
+
+
+Started GET "/assets/jquery.iframe-transport.self-9d6de1e3d97369f20a85456477db38a3d2b674761f4a252275201ec0272793a4.js?body=1" for ::1 at 2016-01-19 18:01:16 -0700
+
+
+Started GET "/assets/jquery.remotipart.self-337cc0be48c9612bd2dff6eebbc740a488456bba7c0d29da6b63834752826ecd.js?body=1" for ::1 at 2016-01-19 18:01:16 -0700
+
+
+Started GET "/assets/application.self-f1ae1c62fa2d557e94684a2b68dd5cc3b1dbbf25086d88829ff4ffd0496bf81a.js?body=1" for ::1 at 2016-01-19 18:01:16 -0700
+
+
+Started GET "/assets/welcome.self-e8d76971c310821330e4d98fa9e2a2826fc808fbc641b8f3f3c8016690e29135.js?body=1" for ::1 at 2016-01-19 18:01:16 -0700
+
+
+Started GET "/assets/sign_up_forms.self-28f6bd86766e0c9aa2c734952d8787dac4a47481096c7e7724082565b74fef69.js?body=1" for ::1 at 2016-01-19 18:01:16 -0700
+
+
+Started GET "/" for ::1 at 2016-01-19 18:02:19 -0700
+Processing by WelcomeController#index as HTML
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered welcome/index.html.haml within layouts/application (11.8ms)
+  Rendered layouts/_header.html.haml (0.4ms)
+Completed 200 OK in 1415ms (Views: 1413.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-d114fe25eecedefdfe2af47e52dabdaf5e92081d40f47d23e929c81d115a2b56.css?body=1" for ::1 at 2016-01-19 18:02:21 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2016-01-19 18:02:21 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2016-01-19 18:02:21 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-01-19 18:02:21 -0700
+
+
+Started GET "/assets/helpers.self-08870579ca41ea1d807453f1208ea3bcb3f624c3e8a89ab56379d1b3c44ca6db.js?body=1" for ::1 at 2016-01-19 18:02:21 -0700
+
+
+Started GET "/assets/welcome.self-e8d76971c310821330e4d98fa9e2a2826fc808fbc641b8f3f3c8016690e29135.js?body=1" for ::1 at 2016-01-19 18:02:21 -0700
+
+
+Started GET "/assets/jquery.iframe-transport.self-9d6de1e3d97369f20a85456477db38a3d2b674761f4a252275201ec0272793a4.js?body=1" for ::1 at 2016-01-19 18:02:21 -0700
+
+
+Started GET "/assets/jquery.remotipart.self-337cc0be48c9612bd2dff6eebbc740a488456bba7c0d29da6b63834752826ecd.js?body=1" for ::1 at 2016-01-19 18:02:21 -0700
+
+
+Started GET "/assets/application.self-f1ae1c62fa2d557e94684a2b68dd5cc3b1dbbf25086d88829ff4ffd0496bf81a.js?body=1" for ::1 at 2016-01-19 18:02:21 -0700
+
+
+Started GET "/assets/jquery.turbolinks.self-176b9819f30444d441e820bbccd3264fe57753aeafd54dec732b0dbc77129a2a.js?body=1" for ::1 at 2016-01-19 18:02:21 -0700
+
+
+Started GET "/assets/sign_up_forms.self-28f6bd86766e0c9aa2c734952d8787dac4a47481096c7e7724082565b74fef69.js?body=1" for ::1 at 2016-01-19 18:02:21 -0700
+
+
+Started GET "/" for ::1 at 2016-01-19 18:04:38 -0700
+Processing by WelcomeController#index as HTML
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered welcome/index.html.haml within layouts/application (9.8ms)
+  Rendered layouts/_header.html.haml (0.4ms)
+Completed 200 OK in 1348ms (Views: 1347.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2016-01-19 18:04:40 -0700
+
+
+Started GET "/assets/jquery.turbolinks.self-176b9819f30444d441e820bbccd3264fe57753aeafd54dec732b0dbc77129a2a.js?body=1" for ::1 at 2016-01-19 18:04:40 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2016-01-19 18:04:40 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-01-19 18:04:40 -0700
+
+
+Started GET "/assets/application.self-5ec47d2bc9991f65c3bfab030684bc2a4386672fa1141d2ea908da83d212d485.css?body=1" for ::1 at 2016-01-19 18:04:40 -0700
+
+
+Started GET "/assets/helpers.self-08870579ca41ea1d807453f1208ea3bcb3f624c3e8a89ab56379d1b3c44ca6db.js?body=1" for ::1 at 2016-01-19 18:04:40 -0700
+
+
+Started GET "/assets/jquery.iframe-transport.self-9d6de1e3d97369f20a85456477db38a3d2b674761f4a252275201ec0272793a4.js?body=1" for ::1 at 2016-01-19 18:04:40 -0700
+
+
+Started GET "/assets/jquery.remotipart.self-337cc0be48c9612bd2dff6eebbc740a488456bba7c0d29da6b63834752826ecd.js?body=1" for ::1 at 2016-01-19 18:04:40 -0700
+
+
+Started GET "/assets/application.self-f1ae1c62fa2d557e94684a2b68dd5cc3b1dbbf25086d88829ff4ffd0496bf81a.js?body=1" for ::1 at 2016-01-19 18:04:40 -0700
+
+
+Started GET "/assets/welcome.self-e8d76971c310821330e4d98fa9e2a2826fc808fbc641b8f3f3c8016690e29135.js?body=1" for ::1 at 2016-01-19 18:04:40 -0700
+
+
+Started GET "/assets/sign_up_forms.self-28f6bd86766e0c9aa2c734952d8787dac4a47481096c7e7724082565b74fef69.js?body=1" for ::1 at 2016-01-19 18:04:40 -0700
+
+
+Started GET "/" for ::1 at 2016-01-19 18:04:52 -0700
+Processing by WelcomeController#index as HTML
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered welcome/index.html.haml within layouts/application (19.4ms)
+  Rendered layouts/_header.html.haml (0.5ms)
+Completed 200 OK in 1363ms (Views: 1362.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-0ed3661ba4c55dcb835bc630444867aac5a0336791a14741d3367bd7360eecfb.css?body=1" for ::1 at 2016-01-19 18:04:53 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2016-01-19 18:04:53 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2016-01-19 18:04:53 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-01-19 18:04:53 -0700
+
+
+Started GET "/assets/helpers.self-08870579ca41ea1d807453f1208ea3bcb3f624c3e8a89ab56379d1b3c44ca6db.js?body=1" for ::1 at 2016-01-19 18:04:53 -0700
+
+
+Started GET "/assets/jquery.turbolinks.self-176b9819f30444d441e820bbccd3264fe57753aeafd54dec732b0dbc77129a2a.js?body=1" for ::1 at 2016-01-19 18:04:53 -0700
+
+
+Started GET "/assets/jquery.iframe-transport.self-9d6de1e3d97369f20a85456477db38a3d2b674761f4a252275201ec0272793a4.js?body=1" for ::1 at 2016-01-19 18:04:53 -0700
+
+
+Started GET "/assets/jquery.remotipart.self-337cc0be48c9612bd2dff6eebbc740a488456bba7c0d29da6b63834752826ecd.js?body=1" for ::1 at 2016-01-19 18:04:53 -0700
+
+
+Started GET "/assets/application.self-f1ae1c62fa2d557e94684a2b68dd5cc3b1dbbf25086d88829ff4ffd0496bf81a.js?body=1" for ::1 at 2016-01-19 18:04:53 -0700
+
+
+Started GET "/assets/welcome.self-e8d76971c310821330e4d98fa9e2a2826fc808fbc641b8f3f3c8016690e29135.js?body=1" for ::1 at 2016-01-19 18:04:53 -0700
+
+
+Started GET "/assets/sign_up_forms.self-28f6bd86766e0c9aa2c734952d8787dac4a47481096c7e7724082565b74fef69.js?body=1" for ::1 at 2016-01-19 18:04:53 -0700
+
+
+Started GET "/" for ::1 at 2016-01-21 13:18:46 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered shared/_error_messages.html.erb (4.0ms)
+  Rendered welcome/index.html.haml within layouts/application (386.6ms)
+DEPRECATION WARNING on line 70 of /Users/jessicaowens/.rvm/gems/ruby-2.0.0-p598/gems/susy-2.2.6/sass/susy/output/support/_support.scss: #{} interpolation near operators will be simplified
+in a future version of Sass. To preserve the current behavior, use quotes:
+
+  unquote("#{$_type}-exists")
+
+
+  Rendered layouts/_header.html.haml (4.7ms)
+Completed 200 OK in 2158ms (Views: 2100.5ms | ActiveRecord: 24.3ms)
+
+
+Started GET "/assets/application.self-5d5121cfbff24a9b6cc4586b99bd67469db3104794bd60fc4564d6c2bddac02c.css?body=1" for ::1 at 2016-01-21 13:18:49 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2016-01-21 13:18:49 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2016-01-21 13:18:49 -0700
+
+
+Started GET "/assets/jquery.turbolinks.self-176b9819f30444d441e820bbccd3264fe57753aeafd54dec732b0dbc77129a2a.js?body=1" for ::1 at 2016-01-21 13:18:49 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-01-21 13:18:49 -0700
+
+
+Started GET "/assets/jquery.iframe-transport.self-9d6de1e3d97369f20a85456477db38a3d2b674761f4a252275201ec0272793a4.js?body=1" for ::1 at 2016-01-21 13:18:49 -0700
+
+
+Started GET "/assets/helpers.self-08870579ca41ea1d807453f1208ea3bcb3f624c3e8a89ab56379d1b3c44ca6db.js?body=1" for ::1 at 2016-01-21 13:18:49 -0700
+
+
+Started GET "/assets/jquery.remotipart.self-337cc0be48c9612bd2dff6eebbc740a488456bba7c0d29da6b63834752826ecd.js?body=1" for ::1 at 2016-01-21 13:18:49 -0700
+
+
+Started GET "/assets/application.self-f1ae1c62fa2d557e94684a2b68dd5cc3b1dbbf25086d88829ff4ffd0496bf81a.js?body=1" for ::1 at 2016-01-21 13:18:49 -0700
+
+
+Started GET "/assets/welcome.self-e8d76971c310821330e4d98fa9e2a2826fc808fbc641b8f3f3c8016690e29135.js?body=1" for ::1 at 2016-01-21 13:18:49 -0700
+
+
+Started GET "/assets/sign_up_forms.self-28f6bd86766e0c9aa2c734952d8787dac4a47481096c7e7724082565b74fef69.js?body=1" for ::1 at 2016-01-21 13:18:49 -0700

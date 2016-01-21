@@ -78,7 +78,8 @@ body {
     display: none;
     background-color: $background-white;
     z-index: 3000;
-    position: absolute;
+    position: fixed;
+    margin-top: 70px;
     margin-left: auto;
     margin-right: auto;
     left: 0;
@@ -156,6 +157,12 @@ body {
 
 .hidden {
   display: none;
+}
+
+.hide-mobile {
+  @include bp-medium {
+    display: none !important;
+  }
 }
 
 .span12 {
