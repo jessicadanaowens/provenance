@@ -1,6 +1,40 @@
+.navbar {
+  background-color: $dark-blue;
+  z-index: 3000;
+
+  .nav-link {
+    display: none;
+  }
+
+  @include bp-small {
+    background-color: $dark-blue !important;
+    padding-bottom: 15px;
+  }
+
+  @include bp-medium {
+    background-color: $dark-blue !important;
+    padding-bottom: 15px;
+  }
+
+  .header-container {
+    @include bp-small {
+      padding: 20px;
+      background-color: $dark-blue;
+    }
+  }
+
+  .header-container {
+    @include bp-medium {
+      padding: 20px;
+      background-color: $dark-blue;
+    }
+  }
+}
+
 .login, .welcome-login{
   .white-square-content {
     .outter {
+      padding-bottom: 20px;
       .inner {
         p.small {
           text-align: center;
@@ -176,7 +210,7 @@
     }
 
     @include bp-medium {
-      margin-top: -30px;
+      margin-top: -100px;
     }
   }
 }

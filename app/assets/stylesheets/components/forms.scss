@@ -36,11 +36,11 @@
   }
 
   .main-form {
-    background-color: $white-smoke;
+    background-color: #fbfbfb;
   }
 
   input {
-    padding-left: 10px;
+    width: 100%;
   }
 
   input#image {
@@ -59,7 +59,7 @@
   }
 
   #new-item {
-    padding: 20px;
+    padding: 40px;
     border: 1px solid $form-outline;
     border-top: none;
   }

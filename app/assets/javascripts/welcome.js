@@ -5,7 +5,11 @@ $(function () {
       'opacity' : 1-(scrollPos/250)
     });
 
-    $('button.static').css({
+    $('a.button-red.static').css({
+      'opacity' : 1-(scrollPos/250)
+    });
+
+    $('h2.static').css({
       'opacity' : 1-(scrollPos/250)
     });
 

@@ -1,38 +1,3 @@
-.pink-button {
-  @include border-radius(3px);
-  width: 100%;
-  background-color: $pink2;
-  color: white;
-  padding: 20px;
-  font-size: 12px;
-  margin-bottom: 20px;
-  margin-top: 40px;
-  font-weight: $bold;
-  border: 0;
-  @include transition (background-color .2s);
-}
-
-.pink-button:hover {
-  background-color: $pink4;
-}
-
-.submit-button {
-  @extend .pink-button;
-  padding: 0;
-}
-
-.delete {
-  @extend .pink-button;
-  background-color: $aqua2;
-  width: 100px;
-  padding: 10px;
-  margin: 0;
-}
-
-.delete:hover {
-  background-color: $aqua4;
-}
-
 .outline-button {
   padding: 7px;
   border: 1px solid white;
@@ -61,24 +26,6 @@
   }
 }
 
-.blue-outline-button {
-  @extend .outline-button;
-  color: $blue2;
-  border: 1px solid $blue2;
-
-  a {
-    color: $blue2;
-  }
-}
-
-.blue-outline-button:hover {
-  @extend .outline-button;
-  color: $white;
-  background-color: $blue2;
-  border: 1px solid $blue2;
-}
-
-
 .pink-outline-button {
   @extend .outline-button;
   color: $pink2;
@@ -94,4 +41,53 @@
   color: $white;
   background-color: $pink2;
   border: 1px solid $pink2;
+}
+
+.button-red {
+  display: block;
+  width: 300px;
+  background-color: $pink2;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 25px;
+  text-align: center;
+  border: 10px solid $pink2;
+  margin-top: 30px;
+  @include border-radius(3px);
+  @include transition (all .2s);
+}
+
+.button-red:hover {
+  background-color: $pink4;
+  border: 10px solid $pink4;
+  color: white;
+}
+
+.submit-button {
+  width: 100%;
+  font-size: 15px;
+  margin-bottom: 20px;
+  margin-top: 50px;
+}
+
+.submit-button:hover {
+  cursor: pointer;
+}
+
+.delete {
+  @extend .button-red;
+  background-color: $aqua2;
+  width: 100px;
+  padding: 5px 0px;
+  margin: 0;
+  font-size: 14px;
+  border: 0;
+}
+
+.delete:hover {
+  background-color: $aqua4;
+  border: 0;
 }

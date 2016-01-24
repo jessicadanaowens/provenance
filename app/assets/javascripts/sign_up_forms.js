@@ -57,7 +57,7 @@ SignUp.prototype.initialSignUp = function initialSignUp (e) {
       data: { user: this.user}
     }).done(function( data ) {
       if(data.message == 'success') {
-        if (window.location.href == "http://localhost:3000/") {
+        if (window.location.href == "http://localhost:3000/" || window.location.href == "http://localhost:3000/signup") {
           window.location.href = "http://localhost:3000/dashboard";
         } else {
           window.location.href = "https://provenance-art.herokuapp.com/dashboard";

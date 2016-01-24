@@ -1,12 +1,26 @@
+@import "base/variables";
+@import "base/mixins";
+@import "susy";
+
+
 .navbar {
   background-color: $dark-blue !important;
+  .header-container {
+    @include container(1200px);
+    background-color: $dark-blue;
+    padding: 20px;
+  }
 }
+
 .dashboard-nav {
   height: 110px;
-  margin-top: 65px;
   background-color: $dark-blue;
+  z-index: 1;
 
-  .container {
+  .dashboard-container {
+    @include container(1200px);
+    padding-right: 20px;
+    padding-left: 20px;
     padding-top: 30px;
   }
 
@@ -46,7 +60,6 @@
   }
 
   ul.items {
-    @include container(960px);
     padding-right: 20px;
     padding-left: 20px;
 

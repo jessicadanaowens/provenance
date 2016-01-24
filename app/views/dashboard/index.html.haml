@@ -1,20 +1,36 @@
+= stylesheet_link_tag "pages/dashboard"
+
+
 .dashboard-nav.section
-  .container
+  .dashboard-container
     %h2 My Collections
     .add
       %i+
 #dashboard.section
-  .filters.container
+  %a#itemLink{href: '#item/1'} anchor
+  #main
+    .filters.container
 
-  .items-container.container
-    %ul.items
-      -if @items.length > 0
-        -@items.each do |item|
-          %li{id: item.id}
-            .item
-              %img{src: item.image.url}
-              %p= item.title
-              %button.delete{id: item.id} Delete
+    .items-container.container
+      %ul.items
+        -if @items.length > 0
+          -@items.each do |item|
+            %li{id: item.id}
+              .item
+                %img{src: item.image.url}
+                %p= item.title
+                %button.delete{id: item.id} Delete
+
+
+
+  #item.hidden
+    %p hello
+    %p hello
+    %p hello
+    %p hello
+    %p hello
+    %p hello
+
 #modal
   .modal-content
     .close
@@ -30,8 +46,8 @@
             =form_for Item.new, html: {id: 'new-item', :multipart => true}, :remote => true do |f|
               .upload
                 %p +
-              = f.file_field :image, id: 'image'
-              = f.hidden_field :image_cache
+                = f.file_field :image, id: 'image'
+                = f.hidden_field :image_cache
 
               =f.text_field :title, placeholder:'title', id: 'title'
 
@@ -61,6 +77,9 @@
     function imageChange () {
       $("#image").change(function(){
         readURL(this);
+        $('#modal').css('width', '800px')
+        $('.downloaded-images').removeClass('hidden').addClass('span6')
+        $('.main-form').addClass('span6last')
       });
     };
 
@@ -121,7 +140,15 @@
     $('input[type="file"]').val(null);
     $('#uploadedImage').attr('src', '')
     $('#image').val('');
+    $('#modal').css('width', '400px')
+    $('.downloaded-images').addClass('hidden').removeClass('span6')
+    $('.main-form').removeClass('span6last')
   }
+
+   $('#itemLink').on('click', function () {
+      $('#main').addClass('hidden');
+      $('#item').removeClass('hidden');
+   })
 
 
 

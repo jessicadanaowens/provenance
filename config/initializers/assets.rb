@@ -12,3 +12,5 @@ Rails.application.config.assets.version = '1.0'
 
 Rails.application.config.assets.precompile += %w( sign_up_forms.js )
 Rails.application.config.assets.precompile += %w( welcome.js )
+Rails.application.config.assets.precompile += %w( pages/welcome.css )
+Rails.application.config.assets.precompile += %w( pages/dashboard.css )

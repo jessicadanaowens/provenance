@@ -1,26 +1,18 @@
 = javascript_include_tag "welcome"
 = javascript_include_tag "sign_up_forms"
 
+= stylesheet_link_tag "pages/welcome"
+
 #welcome
   .first.section{align: "center"}
+    .video-overlay
+    .video-div
+      %iframe(src="https://player.vimeo.com/video/152856659?controls=0&autoplay=1&loop=1&portrait=0&badge=0&byline=0&autopause=0&title=0" frameborder="0" allowfullscreen width="100%" height="800px")
+
     .container
-
-      %h1 Organize your art collection and provenance.
-      %button.pink-outline-button.static
-        %a{href: "#sign-up", class: 'anchorLink'} Try it for free
-
-  .second.section{align: "center"}
-    .container
-      %h2 Collaborate with collectors and artists.
-
-  .third.section{align: "center"}
-    .container
-      %h2 Share your collection and documents.
-
-  .forth.section{align: "center"}
-    .container
-      %h2 Freaking Easy.  Fun.  Free.
-
+      %h1 Art management. Made easy. Free.
+      %h2.static For collectors and artists. Buy, sell, manage, and share art.
+      %a{href: "#sign-up", class: 'button-red static anchorLink'} Try it for free
 
   .section#sign-up
     .welcome-login
@@ -49,7 +41,7 @@
                 .error.password
 
               .field.submit
-                = f.submit "sign up free", class: 'submit pink-button'
+                = f.submit "sign up free", class: 'submit-button button-red'
 
                 .welcome-login-link
                   %p.small-text
